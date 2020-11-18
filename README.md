@@ -1,6 +1,7 @@
 # Helm Charts
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dexidp/helm-charts/Release?style=flat-square)
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/dex)](https://artifacthub.io/packages/search?repo=dex)
 
 Various Helm [charts](https://helm.sh/docs/topics/charts/) for [Dex](https://dexidp.io/).
 
