@@ -1,0 +1,34 @@
+# Based on https://github.com/prometheus-community/helm-charts/blob/a3e6d68b12284f26d216250b57b2240cc9519224/.github/workflows/sync-readme.yaml
+name: Sync README.md
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - README.md
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Save README.md in temporary file
+        run: cp -f README.md ${{ runner.temp }}/README.md
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - name: Sync README.md
+        run: |
+          cp -f ${{ runner.temp }}/README.md .
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add README.md
+          git commit --signoff -m "Sync README"
+          git push
