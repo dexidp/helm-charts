@@ -3,15 +3,15 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
-        - First chart release
+        - Lower the minimum required Kubernetes version to 1.14
       artifacthub.io/images: |
         - name: dex
           image: ghcr.io/dexidp/dex:v2.28.0
     apiVersion: v2
     appVersion: 2.28.0
-    created: "2021-02-16T14:43:30.990917506Z"
+    created: "2021-02-17T15:34:11.222304303Z"
     description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
-    digest: 39181e9e2cfe22f5cb25d5b4b355048012fbc0c794c0709d62c00ae9366893a1
+    digest: b28304fcd2a1dad1831c259d0a51667fd51d7213ba8126fe930d67bb2913848d
     home: https://dexidp.io/
     icon: https://dexidp.io/favicon.png
     keywords:
@@ -19,7 +19,7 @@ entries:
     - oauth
     - identity-provider
     - saml
-    kubeVersion: '>=1.16.0-0'
+    kubeVersion: '>=1.14.0-0'
     maintainers:
     - email: mark.sagikazar@gmail.com
       name: sagikazarmark
@@ -30,8 +30,8 @@ entries:
     - https://github.com/dexidp/helm-charts/tree/master/charts/dex
     type: application
     urls:
-    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.1/dex-0.0.1.tgz
-    version: 0.0.1
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.2/dex-0.0.2.tgz
+    version: 0.0.2
   kube-secrets-init:
   - annotations:
       artifacthub.io/changes: |
