@@ -6,6 +6,8 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.changes.outputs.changed }}
 
     steps:
       - name: Checkout
@@ -29,10 +31,22 @@ jobs:
       - name: Lint
         run: ct lint
 
+      - name: Detect changes
+        id: changes
+        run: |
+          changed=$(ct list-changed)
+          if [[ -n "$changed" ]]; then
+            echo "::set-output name=changed::true"
+          fi
+
   test:
     name: Test
     runs-on: ubuntu-latest
     needs: lint
+    if: needs.lint.outputs.changed == 'true'
+    strategy:
+      matrix:
+        kube: ["1.14", "1.15", "1.16", "1.17", "1.18", "1.19", "1.20"]
 
     steps:
       - name: Checkout
@@ -53,18 +67,34 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.0.1
 
-      - name: List changes
-        id: changes
+      # See https://github.com/kubernetes-sigs/kind/releases/tag/v0.10.0
+      - name: Determine KinD node image version
+        id: node_image
         run: |
-          changed=$(ct list-changed)
-          if [[ -n "$changed" ]]; then
-            echo "::set-output name=changed::true"
-          fi
+          case ${{ matrix.kube }} in
+            1.14)
+              NODE_IMAGE=kindest/node:v1.14.10@sha256:3fbed72bcac108055e46e7b4091eb6858ad628ec51bf693c21f5ec34578f6180 ;;
+            1.15)
+              NODE_IMAGE=kindest/node:v1.15.12@sha256:67181f94f0b3072fb56509107b380e38c55e23bf60e6f052fbd8052d26052fb5 ;;
+            1.16)
+              NODE_IMAGE=kindest/node:v1.16.15@sha256:c10a63a5bda231c0a379bf91aebf8ad3c79146daca59db816fb963f731852a99 ;;
+            1.17)
+              NODE_IMAGE=kindest/node:v1.17.17@sha256:7b6369d27eee99c7a85c48ffd60e11412dc3f373658bc59b7f4d530b7056823e ;;
+            1.18)
+              NODE_IMAGE=kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4 ;;
+            1.19)
+              NODE_IMAGE=kindest/node:v1.19.7@sha256:a70639454e97a4b733f9d9b67e12c01f6b0297449d5b9cbbef87473458e26dca ;;
+            1.20)
+              NODE_IMAGE=kindest/node:v1.20.2@sha256:8f7ea6e7642c0da54f04a7ee10431549c0257315b3a634f6ef2fecaaedb19bab ;;
+            esac
+
+            echo "::set-output name=image::$NODE_IMAGE"
 
       - name: Create KinD cluster
         uses: helm/kind-action@v1.1.0
-        # Only create a kind cluster if there are chart changes to test.
-        if: steps.changes.outputs.changed == 'true'
+        with:
+          version: v0.10.0
+          node_image: ${{ steps.node_image.outputs.image }}
 
       - name: Install
         run: ct install
