@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.0.2
+version: 0.0.3
 appVersion: "2.28.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
@@ -21,7 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Lower the minimum required Kubernetes version to 1.14
+    - Fix envFrom (add missing envFrom to the deployment)
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.0
