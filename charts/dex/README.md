@@ -117,6 +117,7 @@ ingress:
 | imagePullSecrets | list | `[]` | Image [pull secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret) |
 | nameOverride | string | `""` | Provide a name in place of the chart name for `app:` labels. |
 | fullnameOverride | string | `""` | Provide a name to substitute for the full names of resources. |
+| https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |
 | volumes | list | `[]` | Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) of a Pod. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/#volumes) for details. |
