@@ -3,15 +3,15 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
-        - Fix envFrom (add missing envFrom to the deployment)
+        - Fix template rendering when podAnnotations is set
       artifacthub.io/images: |
         - name: dex
           image: ghcr.io/dexidp/dex:v2.28.0
     apiVersion: v2
     appVersion: 2.28.0
-    created: "2021-02-20T23:40:33.938384805Z"
+    created: "2021-02-25T01:24:26.725846435Z"
     description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
-    digest: 214deb0415e3ce9bf9576ac7a05101e9195c5a3b4116443e64794a410ff9eb4c
+    digest: 10a11f8252f159da714ed6e64d2d8db67754bdb222583e64aaa8bc3702fc48cb
     home: https://dexidp.io/
     icon: https://dexidp.io/favicon.png
     keywords:
@@ -30,8 +30,8 @@ entries:
     - https://github.com/dexidp/helm-charts/tree/master/charts/dex
     type: application
     urls:
-    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.3/dex-0.0.3.tgz
-    version: 0.0.3
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.4/dex-0.0.4.tgz
+    version: 0.0.4
   kube-secrets-init:
   - annotations:
       artifacthub.io/changes: |
