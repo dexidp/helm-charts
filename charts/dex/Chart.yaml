@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.0.3
+version: 0.0.4
 appVersion: "2.28.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
