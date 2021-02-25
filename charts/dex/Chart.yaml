@@ -21,7 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Fix envFrom (add missing envFrom to the deployment)
+    - Fix template rendering when podAnnotations is set
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.0
