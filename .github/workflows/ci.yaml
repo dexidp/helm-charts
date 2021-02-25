@@ -31,6 +31,12 @@ jobs:
       - name: Lint
         run: ct lint
 
+      - name: Docs
+        run: |
+          make docs
+          test "$(git diff --name-only)" == "" \
+          || ( printf >&2 "\nREADME files are not up to date (run 'make docs'), differences:\n\n%s\n\n" "$(git diff)" ; exit 1 ; )
+
       - name: Detect changes
         id: changes
         run: |
@@ -96,5 +102,5 @@ jobs:
           version: v0.10.0
           node_image: ${{ steps.node_image.outputs.image }}
 
-      - name: Install
+      - name: Test
         run: ct install
