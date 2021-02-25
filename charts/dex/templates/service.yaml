@@ -21,6 +21,18 @@ spec:
       {{- if semverCompare ">=1.20-0" .Capabilities.KubeVersion.GitVersion }}
       appProtocol: http
       {{- end }}
+    {{- if .Values.https.enabled }}
+    - name: https
+      port: {{ .Values.service.ports.https.port }}
+      {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) .Values.service.ports.https.nodePort }}
+      nodePort: {{ .Values.service.ports.https.nodePort }}
+      {{- end }}
+      targetPort: https
+      protocol: TCP
+      {{- if semverCompare ">=1.20-0" .Capabilities.KubeVersion.GitVersion }}
+      appProtocol: https
+      {{- end }}
+    {{- end }}
     {{- if .Values.grpc.enabled }}
     - name: grpc
       port: {{ .Values.service.ports.grpc.port }}

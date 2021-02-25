@@ -39,6 +39,10 @@ spec:
             - serve
             - --web-http-addr
             - 0.0.0.0:5556
+            {{- if .Values.https.enabled }}
+            - --web-https-addr
+            - 0.0.0.0:5554
+            {{- end }}
             {{- if .Values.grpc.enabled }}
             - --grpc-addr
             - 0.0.0.0:5557
@@ -59,6 +63,11 @@ spec:
             - name: http
               containerPort: 5556
               protocol: TCP
+            {{- if .Values.https.enabled }}
+            - name: https
+              containerPort: 5554
+              protocol: TCP
+            {{- end }}
             {{- if .Values.grpc.enabled }}
             - name: grpc
               containerPort: 5557

@@ -23,6 +23,10 @@ nameOverride: ""
 # -- Provide a name to substitute for the full names of resources.
 fullnameOverride: ""
 
+https:
+  # -- Enable the HTTPS endpoint.
+  enabled: false
+
 grpc:
   # -- Enable the gRPC endpoint.
   # Read more in the [documentation](https://dexidp.io/docs/api/).
