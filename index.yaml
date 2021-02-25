@@ -3,15 +3,15 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
-        - Fix template rendering when podAnnotations is set
+        - Add HTTPS service
       artifacthub.io/images: |
         - name: dex
           image: ghcr.io/dexidp/dex:v2.28.0
     apiVersion: v2
     appVersion: 2.28.0
-    created: "2021-02-25T01:24:26.725846435Z"
+    created: "2021-02-25T10:58:08.870617724Z"
     description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
-    digest: 10a11f8252f159da714ed6e64d2d8db67754bdb222583e64aaa8bc3702fc48cb
+    digest: 3a3e7dd1d147b895b7ec4f70414b5be08d81a4916e0b33c8e00e3c7e59bd6ce7
     home: https://dexidp.io/
     icon: https://dexidp.io/favicon.png
     keywords:
@@ -30,8 +30,8 @@ entries:
     - https://github.com/dexidp/helm-charts/tree/master/charts/dex
     type: application
     urls:
-    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.4/dex-0.0.4.tgz
-    version: 0.0.4
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.5/dex-0.0.5.tgz
+    version: 0.0.5
   kube-secrets-init:
   - annotations:
       artifacthub.io/changes: |
