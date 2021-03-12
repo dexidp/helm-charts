@@ -10,9 +10,8 @@ image:
   repository: ghcr.io/dexidp/dex
   # -- Image [pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images)
   pullPolicy: IfNotPresent
-  # TODO(sagikazarmark): use a tagged version when available
   # -- Overrides the image tag (default is the chart appVersion).
-  tag: "master"
+  tag: ""
 
 # -- Image [pull secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret)
 imagePullSecrets: []

@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.0.5](https://img.shields.io/badge/version-0.0.5-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.28.0](https://img.shields.io/badge/app%20version-2.28.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.0.6](https://img.shields.io/badge/version-0.0.6-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.28.0](https://img.shields.io/badge/app%20version-2.28.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
 
@@ -113,7 +113,7 @@ ingress:
 | replicaCount | int | `1` | Number of Pods to launch. |
 | image.repository | string | `"ghcr.io/dexidp/dex"` | Repository to pull the container image from. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image [pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images) |
-| image.tag | string | `"master"` |  |
+| image.tag | string | `""` | Overrides the image tag (default is the chart appVersion). |
 | imagePullSecrets | list | `[]` | Image [pull secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret) |
 | nameOverride | string | `""` | Provide a name in place of the chart name for `app:` labels. |
 | fullnameOverride | string | `""` | Provide a name to substitute for the full names of resources. |
