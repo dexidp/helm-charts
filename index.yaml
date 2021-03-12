@@ -3,15 +3,15 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
-        - Add HTTPS service
+        - Use tagged Dex version
       artifacthub.io/images: |
         - name: dex
           image: ghcr.io/dexidp/dex:v2.28.0
     apiVersion: v2
     appVersion: 2.28.0
-    created: "2021-02-25T10:58:08.870617724Z"
+    created: "2021-03-12T22:39:19.586294394Z"
     description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
-    digest: 3a3e7dd1d147b895b7ec4f70414b5be08d81a4916e0b33c8e00e3c7e59bd6ce7
+    digest: 787ee8fb8c8fc4abeb19c0238e2768f448080fb85fd29eb116308836555bebfe
     home: https://dexidp.io/
     icon: https://dexidp.io/favicon.png
     keywords:
@@ -30,8 +30,8 @@ entries:
     - https://github.com/dexidp/helm-charts/tree/master/charts/dex
     type: application
     urls:
-    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.5/dex-0.0.5.tgz
-    version: 0.0.5
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
+    version: 0.0.6
   kube-secrets-init:
   - annotations:
       artifacthub.io/changes: |
@@ -235,6 +235,37 @@ entries:
     - https://github.com/sagikazarmark/helm-charts/releases/download/kube-secrets-init-0.1.0/kube-secrets-init-0.1.0.tgz
     version: 0.1.0
   sftpgo:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update SFTPGo
+      artifacthub.io/images: |
+        - name: sftpgo
+          image: ghcr.io/drakkan/sftpgo:v2.0.2
+        - name: sftpgo-alpine
+          image: ghcr.io/drakkan/sftpgo:v2.0.2-alpine
+    apiVersion: v2
+    appVersion: 2.0.2
+    created: "2021-03-02T07:18:22.633225477Z"
+    description: Fully featured and highly configurable SFTP server with optional FTP/S and WebDAV support.
+    digest: 1a5da0e33cb12062be6f8680a30b304f4bff7e0e0b8a80a35837832dc523c8ba
+    home: https://github.com/drakkan/sftpgo
+    keywords:
+    - sftp
+    - ftp
+    - webdav
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: sftpgo
+    sources:
+    - https://github.com/drakkan/sftpgo
+    - https://github.com/sagikazarmark/helm-charts/tree/master/charts/sftpgo
+    type: application
+    urls:
+    - https://github.com/sagikazarmark/helm-charts/releases/download/sftpgo-0.4.1/sftpgo-0.4.1.tgz
+    version: 0.4.1
   - annotations:
       artifacthub.io/changes: |
         - Add node port to services
