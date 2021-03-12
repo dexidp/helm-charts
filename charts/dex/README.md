@@ -113,7 +113,7 @@ ingress:
 | replicaCount | int | `1` | Number of Pods to launch. |
 | image.repository | string | `"ghcr.io/dexidp/dex"` | Repository to pull the container image from. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image [pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images) |
-| image.tag | string | `"master"` |  |
+| image.tag | string | `""` | Overrides the image tag (default is the chart appVersion). |
 | imagePullSecrets | list | `[]` | Image [pull secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret) |
 | nameOverride | string | `""` | Provide a name in place of the chart name for `app:` labels. |
 | fullnameOverride | string | `""` | Provide a name to substitute for the full names of resources. |

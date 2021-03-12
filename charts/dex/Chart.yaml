@@ -21,7 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Add HTTPS service
+    - Use tagged Dex version
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.0
