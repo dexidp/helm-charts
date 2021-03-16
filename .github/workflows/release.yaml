@@ -32,6 +32,6 @@ jobs:
         uses: helm/chart-releaser-action@v1.1.0
         with:
           charts_dir: charts
-          charts_repo_url: https://charts.sagikazarmark.dev
+          charts_repo_url: https://charts.dexidp.io
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
