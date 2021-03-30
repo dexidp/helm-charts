@@ -17,6 +17,9 @@ metadata:
   {{- end }}
 spec:
   {{- if .Values.ingress.className }}
+  {{- if not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) -}}
+  {{- fail "Kubernetes version >=1.18 required to use className!" -}}
+  {{- end }}
   ingressClassName: {{ .Values.ingress.className }}
   {{- end }}
   {{- if .Values.ingress.tls }}
