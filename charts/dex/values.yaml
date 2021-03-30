@@ -120,7 +120,7 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-# Sets Ingress/ingressClassName. This way ingress resources are able to bound specific ingress-controllers. Kubernetes version >=1.18 required.
+  # Sets Ingress/ingressClassName. This way ingress resources are able to bound specific ingress-controllers. Kubernetes version >=1.18 required.
 # See [Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class) for details.
   # className: ""
 
