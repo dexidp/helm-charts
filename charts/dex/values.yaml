@@ -121,7 +121,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
   # Sets Ingress/ingressClassName. This way ingress resources are able to bound specific ingress-controllers. Kubernetes version >=1.18 required.
-# See [Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class) for details.
+  # See [Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class) for details.
   # className: ""
 
 # -- Container resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
