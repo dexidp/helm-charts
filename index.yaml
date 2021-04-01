@@ -9,6 +9,37 @@ entries:
           image: ghcr.io/dexidp/dex:v2.28.0
     apiVersion: v2
     appVersion: 2.28.0
+    created: "2021-04-01T14:07:17.882341998Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
+    digest: ab40b80dd6f456d4fbb23fa3efe08c186cc52912e83abeb26f019ae81673175f
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.7/dex-0.0.7.tgz
+    version: 0.0.7
+  - annotations:
+      artifacthub.io/changes: |
+        - Use tagged Dex version
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.28.0
+    apiVersion: v2
+    appVersion: 2.28.0
     created: "2021-03-12T22:39:19.586294394Z"
     description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
     digest: 787ee8fb8c8fc4abeb19c0238e2768f448080fb85fd29eb116308836555bebfe
