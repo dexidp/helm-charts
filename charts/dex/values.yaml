@@ -121,7 +121,7 @@ ingress:
 
   # -- Ingress host configuration.
   # @default -- See [values.yaml](values.yaml).
-  rules:
+  hosts:
     - host: chart-example.local
       paths:
         - path: /

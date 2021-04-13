@@ -21,9 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Improve documentation
-    - Support networking.k8s.io/v1 in Ingress
-    - Add ingress className support
+    - Revert ingress breaking change
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.1
