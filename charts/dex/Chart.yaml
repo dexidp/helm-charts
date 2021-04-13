@@ -4,7 +4,7 @@ name: dex
 version: 0.0.7
 appVersion: "2.28.0"
 kubeVersion: ">=1.14.0-0"
-description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
+description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 icon: https://dexidp.io/favicon.png
 keywords:
   - oidc
