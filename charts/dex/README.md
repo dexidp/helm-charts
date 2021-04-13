@@ -1,8 +1,8 @@
 # dex
 
-![version: 0.0.7](https://img.shields.io/badge/version-0.0.7-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.28.0](https://img.shields.io/badge/app%20version-2.28.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.1.0](https://img.shields.io/badge/version-0.1.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.28.1](https://img.shields.io/badge/app%20version-2.28.1-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
-OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors
+OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
 **Homepage:** <https://dexidp.io/>
 
@@ -110,34 +110,38 @@ ingress:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| replicaCount | int | `1` | Number of Pods to launch. |
-| image.repository | string | `"ghcr.io/dexidp/dex"` | Repository to pull the container image from. |
-| image.pullPolicy | string | `"IfNotPresent"` | Image [pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images) |
-| image.tag | string | `""` | Overrides the image tag (default is the chart appVersion). |
-| imagePullSecrets | list | `[]` | Image [pull secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret) |
-| nameOverride | string | `""` | Provide a name in place of the chart name for `app:` labels. |
-| fullnameOverride | string | `""` | Provide a name to substitute for the full names of resources. |
+| replicaCount | int | `1` | Number of replicas (pods) to launch. |
+| image.repository | string | `"ghcr.io/dexidp/dex"` | Name of the image repository to pull the container image from. |
+| image.pullPolicy | string | `"IfNotPresent"` | [Image pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images) for updating already existing images on a node. |
+| image.tag | string | `""` | Image tag override for the default value (chart appVersion). |
+| imagePullSecrets | list | `[]` | Reference to one or more secrets to be used when [pulling images](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret) (from private registries). |
+| nameOverride | string | `""` | A name in place of the chart name for `app:` labels. |
+| fullnameOverride | string | `""` | A name to substitute for the full names of resources. |
 | https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |
-| volumes | list | `[]` | Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) of a Pod. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/#volumes) for details. |
-| volumeMounts | list | `[]` | Additional [volume mounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/) of a container. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#volumes) for details. |
-| envFrom | list | `[]` | Configure a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables) or a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables) as environment variable sources for a Pod. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#environment-variables) for details. |
-| env | object | `{}` | Pass environment variables directly to a Pod. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#environment-variables) for details. |
-| serviceAccount.create | bool | `true` | Whether a service account should be created. |
-| serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
+| volumes | list | `[]` | Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/#volumes) for details. |
+| volumeMounts | list | `[]` | Additional [volume mounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#volumes) for details. |
+| envFrom | list | `[]` | Additional environment variables mounted from [secrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables) or [config maps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#environment-variables) for details. |
+| env | object | `{}` | Additional environment variables passed directly to containers. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#environment-variables) for details. |
+| serviceAccount.create | bool | `true` | Enable service account creation. |
+| serviceAccount.annotations | object | `{}` | Annotations to be added to the service account. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | rbac.create | bool | `true` | Specifies whether RBAC resources should be created. If disabled, the operator is responsible for creating the necessary resources based on the templates. |
-| podAnnotations | object | `{}` | Custom annotations for a Pod. |
+| podAnnotations | object | `{}` | Annotations to be added to pods. |
 | podSecurityContext | object | `{}` | Pod [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/pod-v1/#security-context) for details. |
 | securityContext | object | `{}` | Container [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#security-context) for details. |
-| service.annotations | object | `{}` | Annotations to add to the Service. |
+| service.annotations | object | `{}` | Annotations to be added to the service. |
 | service.type | string | `"ClusterIP"` | Kubernetes [service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types). |
 | service.ports.http.port | int | `5556` | HTTP service port |
 | service.ports.http.nodePort | int | `nil` | HTTP node port (when applicable) |
 | service.ports.grpc.port | int | `5557` | gRPC service port |
 | service.ports.grpc.nodePort | int | `nil` | gRPC node port (when applicable) |
-| ingress | object | Disabled by default. | Ingress configuration (see [values.yaml](values.yaml) for details). |
+| ingress.enabled | bool | `false` | Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/). |
+| ingress.className | string | `nil` | Ingress [class name](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class). |
+| ingress.annotations | object | `{}` | Annotations to be added to the ingress. |
+| ingress.rules | list | See [values.yaml](values.yaml). | Ingress host configuration. |
+| ingress.tls | list | See [values.yaml](values.yaml). | Ingress TLS configuration. |
 | resources | object | No requests or limits. | Container resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/container/#resources) for details. |
 | autoscaling | object | Disabled by default. | Autoscaling configuration (see [values.yaml](values.yaml) for details). |
 | nodeSelector | object | `{}` | [Node selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) configuration. |
