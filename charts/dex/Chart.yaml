@@ -21,7 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Revert ingress breaking change
+    - Fix ingress pointing to the right port
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.1
