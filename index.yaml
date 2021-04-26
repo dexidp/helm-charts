@@ -3,6 +3,39 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
+        - Improve documentation
+        - Improve ingress
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.28.1
+    apiVersion: v2
+    appVersion: 2.28.1
+    created: "2021-04-26T08:27:33.296498116Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: 714915b72a6473d9fcf7d890da8484ac084e9d64c474b953d56148ed3cbf62ef
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.1.3/dex-0.1.3.tgz
+    version: 0.1.3
+  - annotations:
+      artifacthub.io/changes: |
         - Fix ingress pointing to the right port
       artifacthub.io/images: |
         - name: dex
@@ -163,4 +196,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2021-04-15T08:14:50.489304141Z"
+generated: "2021-04-26T08:27:33.296520616Z"
