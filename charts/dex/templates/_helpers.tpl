@@ -60,16 +60,3 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
-{{/*
-Create a default fully qualified component name from the full app name and a component name.
-We truncate the full name at 63 - 1 (last dash) - len(component name) chars because some Kubernetes name fields are limited to this (by the DNS naming spec)
-and we want to make sure that the component is included in the name.
-
-Usage: {{ include "dex.componentname" (list . "component") }}
-*/}}
-{{- define "dex.componentname" -}}
-{{- $global := index . 0 -}}
-{{- $component := index . 1 | trimPrefix "-" -}}
-{{- printf "%s-%s" (include "dex.fullname" $global | trunc (sub 62 (len $component) | int) | trimSuffix "-" ) $component | trimSuffix "-" -}}
-{{- end -}}
