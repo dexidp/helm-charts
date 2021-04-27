@@ -96,7 +96,7 @@ spec:
       volumes:
         - name: config
           secret:
-            secretName: {{ include "dex.componentname" (list . "config") }}
+            secretName: {{ include "dex.fullname" . }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
