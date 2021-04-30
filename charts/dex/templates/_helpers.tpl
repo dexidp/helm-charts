@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the name of the secret containing the config file to use
+*/}}
+{{- define "dex.configSecretName" -}}
+{{- if .Values.configSecret.create }}
+{{- default (include "dex.fullname" .) .Values.configSecret.name }}
+{{- else }}
+{{- default "default" .Values.configSecret.name }}
+{{- end }}
+{{- end }}

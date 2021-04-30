@@ -33,6 +33,16 @@ grpc:
   # Read more in the [documentation](https://dexidp.io/docs/api/).
   enabled: false
 
+configSecret:
+  # -- Enable creating a secret from the values passed to `config`.
+  # If set to false, name must point to an existing secret.
+  create: true
+
+  # -- The name of the secret to mount as configuration in the pod.
+  # If not set and create is true, a name is generated using the fullname template.
+  # Must point to secret that contains at least a `config.yaml` key.
+  name: ""
+
 # -- Application configuration.
 # See the [official documentation](https://dexidp.io/docs/).
 config: {}
