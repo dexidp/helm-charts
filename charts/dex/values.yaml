@@ -24,6 +24,10 @@ nameOverride: ""
 # -- A name to substitute for the full names of resources.
 fullnameOverride: ""
 
+# -- A list of hosts and IPs that will be injected into the pod's hosts file if specified.
+# See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution)
+hostAliases: []
+
 https:
   # -- Enable the HTTPS endpoint.
   enabled: false
