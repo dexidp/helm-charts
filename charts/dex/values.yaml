@@ -86,9 +86,16 @@ rbac:
 # -- Annotations to be added to pods.
 podAnnotations: {}
 
-# -- A field (and it's value) from the PodDisruptionBudget spec like minAvailable or maxUnavailable
-podDisruptionBudget: {}
-  # minAvailable: 50%
+podDisruptionBudget:
+  # -- Enable a [pod distruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) to help dealing with [disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
+  # It is **highly recommended** for webhooks as disruptions can prevent launching new pods.
+  enabled: false
+
+  # -- (int/percentage) Number or percentage of pods that must remain available.
+  minAvailable:
+
+  # -- (int/percentage) Number or percentage of pods that can be unavailable.
+  maxUnavailable:
 
 # -- Pod [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod).
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context) for details.
