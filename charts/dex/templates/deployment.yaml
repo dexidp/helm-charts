@@ -94,6 +94,11 @@ spec:
             - name: config
               mountPath: /etc/dex
               readOnly: true
+            {{- if and .Values.grpc.enabled .Values.grpc.authentication.enabled }}
+            - name: grpc-api-server-tls
+              mountPath: {{ .Values.grpc.authentication.path }}
+              readOnly: true
+            {{- end }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -101,6 +106,12 @@ spec:
         - name: config
           secret:
             secretName: {{ include "dex.configSecretName" . }}
+        {{- if and .Values.grpc.enabled .Values.grpc.authentication.enabled }}
+        - name: grpc-api-server-tls
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.grpc.authentication.secret }}
+        {{- end }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}

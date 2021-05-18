@@ -36,6 +36,12 @@ grpc:
   # -- Enable the gRPC endpoint.
   # Read more in the [documentation](https://dexidp.io/docs/api/).
   enabled: false
+  # Optionally mount a secret with CA and TLS Key pair for api authentication
+  # Use value from tls.path in the config block - more in [documentation](https://dexidp.io/docs/api/#configuration)
+  authentication: 
+    enabled: false
+    path: /etc/dex/tls 
+    secret: dex-api-server-tls
 
 configSecret:
   # -- Enable creating a secret from the values passed to `config`.
