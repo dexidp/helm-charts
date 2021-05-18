@@ -120,6 +120,9 @@ ingress:
 | hostAliases | list | `[]` | A list of hosts and IPs that will be injected into the pod's hosts file if specified. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution) |
 | https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
+| grpc.authentication.enabled | bool | `false` | Enable TLS authentication secret for grpc api endpoint |
+| grpc.authentication.path | string | `"/etc/dex/tls"` | Secret mount path |
+| grpc.authentication.secret | string | `"dex-api-server-tls"` | Name of the secret to mount |
 | configSecret.create | bool | `true` | Enable creating a secret from the values passed to `config`. If set to false, name must point to an existing secret. |
 | configSecret.name | string | `""` | The name of the secret to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |
