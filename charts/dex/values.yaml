@@ -127,6 +127,13 @@ service:
       # -- (int) HTTP node port (when applicable)
       nodePort:
 
+    https:
+      # -- HTTPS service port
+      port: 5554
+
+      # -- (int) HTTPS node port (when applicable)
+      nodePort:
+
     grpc:
       # -- gRPC service port
       port: 5557

@@ -141,6 +141,8 @@ ingress:
 | service.type | string | `"ClusterIP"` | Kubernetes [service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types). |
 | service.ports.http.port | int | `5556` | HTTP service port |
 | service.ports.http.nodePort | int | `nil` | HTTP node port (when applicable) |
+| service.ports.https.port | int | `5554` | HTTPS service port |
+| service.ports.https.nodePort | int | `nil` | HTTPS node port (when applicable) |
 | service.ports.grpc.port | int | `5557` | gRPC service port |
 | service.ports.grpc.nodePort | int | `nil` | gRPC node port (when applicable) |
 | ingress.enabled | bool | `false` | Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/). |

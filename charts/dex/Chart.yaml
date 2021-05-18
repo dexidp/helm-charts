@@ -21,7 +21,7 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Added Pod Disruption Budget config
+    - Fix missing HTTPS service values
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.28.1
