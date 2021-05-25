@@ -21,6 +21,9 @@ spec:
       labels:
         {{- include "dex.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
