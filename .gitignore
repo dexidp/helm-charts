@@ -1,2 +1,2 @@
 bin/
-charts/*/values.test.yaml
+charts/*/values.local.yaml
