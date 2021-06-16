@@ -21,7 +21,6 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - Fix missing HTTPS service values
     - Added support for priority class name
   artifacthub.io/images: |
     - name: dex
