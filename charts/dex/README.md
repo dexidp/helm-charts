@@ -45,6 +45,7 @@ ingress:
     - host: my-issuer-url.com
       paths:
         - path: /
+          pathType: ImplementationSpecific # pathType is needed for Kubernetes 1.19+
 ```
 
 ### Minimal TLS configuration
@@ -99,6 +100,7 @@ ingress:
     - host: my-issuer-url.com
       paths:
         - path: /
+          pathType: ImplementationSpecific # pathType is needed for Kubernetes 1.19+
 
   tls:
     - hosts:
