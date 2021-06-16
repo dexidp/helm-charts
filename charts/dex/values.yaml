@@ -24,7 +24,7 @@ nameOverride: ""
 # -- A name to substitute for the full names of resources.
 fullnameOverride: ""
 
-## Set pod priorityClassName
+# -- Specify a priority class name to set [pod priority](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#pod-priority).
 # priorityClassName: ""
 
 # -- A list of hosts and IPs that will be injected into the pod's hosts file if specified.
