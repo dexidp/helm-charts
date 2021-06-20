@@ -24,9 +24,6 @@ nameOverride: ""
 # -- A name to substitute for the full names of resources.
 fullnameOverride: ""
 
-# -- Specify a priority class name to set [pod priority](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#pod-priority).
-priorityClassName: ""
-
 # -- A list of hosts and IPs that will be injected into the pod's hosts file if specified.
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution)
 hostAliases: []
@@ -99,6 +96,9 @@ podDisruptionBudget:
 
   # -- (int/percentage) Number or percentage of pods that can be unavailable.
   maxUnavailable:
+
+# -- Specify a priority class name to set [pod priority](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#pod-priority).
+priorityClassName: ""
 
 # -- Pod [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod).
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context) for details.
