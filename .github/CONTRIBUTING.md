@@ -159,7 +159,37 @@ Please look at the [Conventional Commits site](https://www.conventionalcommits.o
 
 After all changes are done, you need to update the `Chart.yaml` file in the chart.
 
-Start by updating the change log under the `artifacthub.io/changes` annotation.
+
+#### Adding change log
+
+Changes documented under the `artifacthub.io/changes` annotation appear automatically on [Artifact Hub](https://artifacthub.io/).
+
+The annotation value for each version (and as a result each PR) should be cleared before adding new entries.
+
+Here is an example for a change log:
+
+```yaml
+annotations:
+  artifacthub.io/changes: |
+    - kind: added
+      description: Awesome feature that will let you do X
+      links: # Optional
+        - name: Github PR
+          url: https://github.com/.../.../pull/1234
+```
+
+The kind can be one of the following:
+
+- added
+- changed
+- deprecated
+- removed
+- fixed
+- security
+
+The description should be brief, but explain the change in as much detail as possible.
+If needed, you can add links to the GitHub PR or other related resources to add more detail.
+
 
 
 ### Regenerating documentation
@@ -173,9 +203,5 @@ TODO
 
 
 ## Versioning policy
-
-TODO
-
-## Change log
 
 TODO
