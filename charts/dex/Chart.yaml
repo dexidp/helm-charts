@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.6.1
+version: 0.6.2
 appVersion: "2.30.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: Only add `config/checksum` annotation if a config secret is created
+    - kind: added
+      description: `clusterIP` value to control the IP when using ClusterIP service type
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.30.0
