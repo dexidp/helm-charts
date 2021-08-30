@@ -68,7 +68,7 @@ git checkout -b my-branch -t upstream/master
 
 Each pull request should contain changes for a single chart, unless it's a systematic change affecting all or multiple charts.
 
-If you would like to submit breaking changes, please open an issue first to discuss them with the maintainers.
+If you would like to submit breaking changes, please open an issue/discussion first to discuss them with the maintainers.
 
 
 #### Adding variables to `values.yaml`
@@ -104,7 +104,7 @@ helm lint charts/CHART
 
 Next, you should install the chart to a Kubernetes cluster to make sure your changes don't break existing functionality:
 
-> **Pro tip:** Create a `values.test.yaml` in the chart directory (don't worry: they are in gitignore).
+> **Pro tip:** Create a `values.test.yaml` in the chart directory (don't worry about accidentally commiting it: it is in gitignore).
 
 ```bash
 helm upgrade --install -f charts/CHART/values.test.yaml my-chart-test charts/CHART
@@ -114,6 +114,12 @@ Delete the release from the cluster once you made sure that your changes work:
 
 ```bash
 helm delete my-chart-test
+```
+
+For smaller changes (or before installing the chart on a cluster) it might be enough to compile the templates:
+
+```bash
+helm template -f charts/CHART/values.test.yaml my-chart-test charts/CHART
 ```
 
 Repeat the test with your feature disabled to make sure the default happy path isn't broken either.
@@ -153,7 +159,7 @@ Please look at the [Conventional Commits site](https://www.conventionalcommits.o
 
 After all changes are done, you need to update the `Chart.yaml` file in the chart.
 
-TODO
+Start by updating the change log under the `artifacthub.io/changes` annotation.
 
 
 ### Regenerating documentation
