@@ -221,9 +221,23 @@ git commit -m 'chore(charts/CHART): bump chart version'
 
 ### Opening the pull request
 
-TODO
+Once you are done with all changes, push your branch to GitHub:
 
+```bash
+git push -u origin my-branch
+```
 
-## Versioning policy
+Then click on the pull request link appearing in the terminal or go to your fork and
+open a pull request from your branch.
 
-TODO
+Fill out the pull request template and hit submit.
+
+Wait for someone to review your changes.
+Please don't start pinging maintainers if noone reacts in a couple days:
+we are all busy with our life.
+
+Once your changes are reviewed the pull request either get merged
+or the reviewer requests some changes. We try to minimize the number of review rounds,
+but please don't get offended if you need to update your pull request multiple times.
+
+Eventually your changes will be merged. Congratulations and thanks! 🎉👍
