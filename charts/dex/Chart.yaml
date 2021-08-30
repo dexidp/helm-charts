@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: Only add `config/checksum` annotation if a config secret is created
+    - kind: added
+      description: `clusterIP` value to control the IP when using ClusterIP service type
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.30.0
