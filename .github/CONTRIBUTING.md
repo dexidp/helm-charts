@@ -204,6 +204,21 @@ The description should be brief, but explain the change in as much detail as pos
 If needed, you can add links to the GitHub PR or other related resources to add more detail.
 
 
+#### Bumping chart version
+
+Every merged change automatically gets released with the version found in `Chart.yaml`.
+As a result, every PR needs to bump the version in that file.
+Failing to do that results in CI failure.
+
+After bumping the version regenerate the documentation:
+
+```bash
+# bump chart version
+make docs
+git commit -m 'chore(charts/CHART): bump chart version'
+```
+
+
 ### Opening the pull request
 
 TODO
