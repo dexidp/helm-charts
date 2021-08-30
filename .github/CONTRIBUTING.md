@@ -155,6 +155,19 @@ Note the added `charts/CHART` context in the commit message: it signals which ch
 Please look at the [Conventional Commits site](https://www.conventionalcommits.org/) for more examples and details.
 
 
+### Documenting changes
+
+If you made changes to the documentation template (`README.md.gotmpl`) or `values.yaml`,
+you need to regenerate the documentation:
+
+```bash
+make docs
+git commit -m 'docs(charts/CHART): regenerate documentation'
+```
+
+You can also bundle the documentation changes with your other commits to make the commit history nicer.
+
+
 ### Updating `Chart.yaml`
 
 After all changes are done, you need to update the `Chart.yaml` file in the chart.
@@ -189,12 +202,6 @@ The kind can be one of the following:
 
 The description should be brief, but explain the change in as much detail as possible.
 If needed, you can add links to the GitHub PR or other related resources to add more detail.
-
-
-
-### Regenerating documentation
-
-TODO
 
 
 ### Opening the pull request
