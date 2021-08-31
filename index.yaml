@@ -4,6 +4,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: added
+          description: "`clusterIP` value to control the IP when using ClusterIP service type"
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.30.0
+    apiVersion: v2
+    appVersion: 2.30.0
+    created: "2021-08-31T00:04:17.236327292Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: 4275a0a8ab3f730d0cb7406896650f187a02fc61369cfa36360f2c4955891d99
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.6.3/dex-0.6.3.tgz
+    version: 0.6.3
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
           description: `clusterIP` value to control the IP when using ClusterIP service type
       artifacthub.io/images: |
         - name: dex
@@ -520,4 +553,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2021-08-30T22:01:09.486200414Z"
+generated: "2021-08-31T00:04:17.236481192Z"
