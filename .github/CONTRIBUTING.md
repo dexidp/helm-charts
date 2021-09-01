@@ -3,21 +3,21 @@
 👍🎉 If you’re here to contribute to this project: thanks for taking the time! 🎉👍
 
 The following is a set of guidelines for contributing to this project.
-The goal is to make things go more smoothly. If you think that's not the case, feel free to propose changes.
+The goal of this guide is to ensure making contributions goes smoothly. If you have trouble with this process, please help us to improve it by proposing changes.
 
 
 ## Bug reports
 
-If you find a bug or a documentation issue, please [report](https://github.com/dexidp/helm-charts/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.md) it or even better: fix it.
+If you find a bug or a documentation issue, please [report it](https://github.com/dexidp/helm-charts/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.md) or, even better, fix it.
 
 Read on to learn more about submitting changes.
 
 
 ## Feature requests
 
-If you think a feature is missing, please [report](https://github.com/dexidp/helm-charts/issues/new?assignees=&labels=kind%2Fenhancement&template=feature_request.md) it or even better: implement it.
+If you think a feature is missing, please [make a suggestion](https://github.com/dexidp/helm-charts/issues/new?assignees=&labels=kind%2Fenhancement&template=feature_request.md) or, even better, implement it.
 
-If you report it, please describe your use case concretely and with as much details as possible.
+If you do report it, please describe your use case concretely and with as much details as possible.
 Hiding details behind abstractions makes it harder to understand the problem.
 
 If you decide to take a stab at implementing the feature,
@@ -28,7 +28,7 @@ read the rest of this guide to learn more about submitting changes.
 
 The project accepts changes in the form of pull requests (or PRs).
 Pull requests allow maintainers to properly review the patch before accepting it
-and lets the CI ([GitHub Actions](https://docs.github.com/en/actions)) run automated checks to make sure the proposed change doesn't break anything.
+and lets the continuous integration (CI) system, in this case [GitHub Actions](https://docs.github.com/en/actions), run automated checks to make sure the proposed change doesn't break anything.
 
 If you are new to GitHub or the concept of pull requests, check out the [official GitHub documentation](https://help.github.com/articles/about-pull-requests/).
 
@@ -50,7 +50,7 @@ An alternative is using a managed Kubernetes provider, like [DigitalOcean](https
 Fork the project on [GitHub](https://github.com/dexidp/helm-charts) by clicking on the _Fork_ button in the right upper corner and clone the repository:
 
 ```bash
-git clone git@github.com:YOURNAME/helm-charts.git
+git clone git@github.com:YOUR-GITHUB-USERNAME/helm-charts.git
 cd helm-charts
 git remote add upstream https://github.com/dexidp/helm-charts.git
 git fetch upstream
@@ -240,4 +240,4 @@ Once your changes are reviewed the pull request either get merged
 or the reviewer requests some changes. We try to minimize the number of review rounds,
 but please don't get offended if you need to update your pull request multiple times.
 
-Eventually your changes will be merged. Congratulations and thanks! 🎉👍
+Congratulations on the contribution and thanks! 🎉👍
