@@ -124,6 +124,9 @@ service:
 
   # -- Internal cluster service IP (when applicable)
   clusterIP: ""
+  
+  # -- External loadBalancer IP (when applicable)
+  loadBalancerIP: ""
 
   ports:
     http:
