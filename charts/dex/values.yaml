@@ -126,7 +126,7 @@ service:
   clusterIP: ""
   
   # -- External loadBalancer IP (when applicable)
-  loadBalancerIP: ""
+  loadBalancerIP:
 
   ports:
     http:
