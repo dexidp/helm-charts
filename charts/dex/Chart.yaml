@@ -24,7 +24,7 @@ annotations:
     - kind: added
       description: "`clusterIP` value to control the IP when using ClusterIP service type"
     - kind: added
-      description: "`loadBalancerIP` configuration option added to helm chart"
+      description: "`loadBalancerIP` value to control the IP when using LoadBalancer service type"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.30.0
