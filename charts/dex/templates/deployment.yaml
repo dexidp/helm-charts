@@ -4,6 +4,13 @@ metadata:
   name: {{ include "dex.fullname" . }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  annotations:
+    {{- if .Values.commonAnnotations }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+    {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -14,14 +21,17 @@ spec:
   template:
     metadata:
       annotations:
-      {{- with .Values.podAnnotations }}
-        {{- toYaml . | nindent 8 }}
+      {{- if .Values.podAnnotations }}
+      {{- include "common.tplvalues.render" (dict "value" .Values.podAnnotations "context" $) | nindent 8 }}
       {{- end }}
       {{ if .Values.configSecret.create }}
         checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
       {{- end }}
       labels:
-        {{- include "dex.selectorLabels" . | nindent 8 }}
+        {{- include "dex.labels" . | nindent 8 }}
+        {{- if .Values.podLabels }}
+        {{- include "common.tplvalues.render" (dict "value" .Values.podLabels "context" $) | nindent 8 }}
+        {{- end }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -34,7 +44,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.hostAliases }}
-      hostAliases: 
+      hostAliases:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
