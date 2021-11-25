@@ -208,3 +208,9 @@ tolerations: []
 # -- [Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) configuration.
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling) for details.
 affinity: {}
+
+# -- Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration.
+strategy: {}
+  # rollingUpdate:
+  #   maxUnavailable: 1
+  # type: RollingUpdate
