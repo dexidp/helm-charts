@@ -256,3 +256,16 @@ strategy: {}
   # rollingUpdate:
   #   maxUnavailable: 1
   # type: RollingUpdate
+
+# -- [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) configuration (see [values.yaml](values.yaml) for details).
+# @default -- Disabled by default.
+networkPolicy:
+  enabled: false
+  egressRules: []
+  # Example to allow LDAP connector to reach LDAPs port on 1.2.3.4 server
+  #  - to:
+  #      - ipBlock
+  #          cidr: 1.2.3.4/32
+  #    ports:
+  #      - port: 636
+  #        protocol: TCP
