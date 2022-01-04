@@ -8,7 +8,14 @@ kind: PodDisruptionBudget
 metadata:
   name: {{ template "dex.fullname" . }}
   labels:
-{{ include "dex.labels" . | indent 4 }}
+    {{ include "dex.labels" . | indent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  annotations:
+    {{- if .Values.commonAnnotations }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+    {{- end }}
 spec:
   {{- with .Values.podDisruptionBudget.minAvailable }}
   minAvailable: {{ . }}

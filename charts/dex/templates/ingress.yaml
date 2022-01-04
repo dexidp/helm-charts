@@ -18,10 +18,16 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- if .Values.commonAnnotations }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
   ingressClassName: {{ .Values.ingress.className }}
