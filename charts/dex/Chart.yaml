@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.6.4
+version: 0.6.5
 appVersion: "2.30.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: "`strategy` value to control the Dex deployment strategy"
+      description: "`envVars` value to allow secret referencing on environment variables"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.30.0
