@@ -225,6 +225,24 @@ tolerations: []
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling) for details.
 affinity: {}
 
+# -- [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/design.md#servicemonitor) configuration.
+serviceMonitor:
+  # -- Enable Prometheus [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/design.md#servicemonitor)
+  enabled: false
+
+  # -- Define the namespace where to deploy the ServiceMonitor resource.
+  # @default -- Release namespace.
+  namespace: ""
+
+  # -- Prometheus scrape interval
+  interval: 60s
+
+  # -- Prometheus scrape timeout
+  scrapeTimeout: 30s
+
+  # -- Add custom labels to the ServiceMonitor resource
+  labels: {}
+
 # -- Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration.
 strategy: {}
   # rollingUpdate:
