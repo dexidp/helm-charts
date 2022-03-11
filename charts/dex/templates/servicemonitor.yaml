@@ -8,8 +8,8 @@ metadata:
 {{- end }}
   labels:
     {{- include "dex.labels" . | indent 4 }}
-    {{- if .Values.serviceMonitor.labels }}
-      {{ toYaml .Values.serviceMonitor.labels | indent 4}}
+    {{- with .Values.serviceMonitor.labels }}
+      {{ toYaml . | indent 4}}
     {{- end }}
 spec:
   jobLabel: {{ template "dex.fullname" . }}
