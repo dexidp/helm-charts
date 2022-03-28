@@ -102,9 +102,9 @@ Once you are ready with your changes, make sure they pass the linter:
 helm lint charts/CHART
 ```
 
-Next, you should install the chart to a Kubernetes cluster to make sure your changes don't break existing functionality:
+Next, you should install the chart in a Kubernetes cluster to make sure your changes don't break existing functionality:
 
-> **Pro tip:** Create a `values.test.yaml` in the chart directory (don't worry about accidentally commiting it: it is in gitignore).
+> **Pro tip:** Create a `values.test.yaml` in the chart directory (don't worry about accidentally committing it: it is in gitignore).
 
 ```bash
 helm upgrade --install -f charts/CHART/values.test.yaml my-chart-test charts/CHART
@@ -125,7 +125,7 @@ helm template -f charts/CHART/values.test.yaml my-chart-test charts/CHART
 Repeat the test with your feature disabled to make sure the default happy path isn't broken either.
 
 
-### Commiting the changes
+### Committing the changes
 
 Try to keep your changes grouped logically within individual commits.
 It's easier for maintainers to review changes that way.
@@ -209,6 +209,14 @@ If needed, you can add links to the GitHub PR or other related resources to add 
 Every merged change automatically gets released with the version found in `Chart.yaml`.
 As a result, every PR needs to bump the version in that file.
 Failing to do that results in CI failure.
+
+We follow [SemVer](https://semver.org/), so you should bump the version according to its guidelines,
+but here is a couple of examples to make the decision easier:
+
+- Minor documentation and feature changes/fixes should result in a **patch** version bump
+- New features should result in a **minor** version bump
+- Significant, but backward compatible changes should result in a **minor** version bump
+- Breaking changes should result in a **major** version bump
 
 After bumping the version regenerate the documentation:
 
