@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: "Fixed template rendering around error `nil pointer evaluating interface {}.topologySpreadConstraints`"
+    - kind: added
+      description: Optional ServiceMonitor support
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.30.0
