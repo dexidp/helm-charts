@@ -9,10 +9,6 @@ rules:
   - apiGroups: ["dex.coreos.com"]
     resources: ["*"]
     verbs: ["*"]
-  - apiGroups: ["apiextensions.k8s.io"]
-    resources: ["customresourcedefinitions"]
-    verbs: ["create"]
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -23,9 +19,37 @@ metadata:
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
+  name: {{ include "dex.fullname" . }}  
+subjects:
+- kind: ServiceAccount
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "dex.serviceAccountName" . }}
+{{- if .Values.rbac.createClusterScoped }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "dex.fullname" . }}
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+rules:
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    verbs: ["create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "dex.fullname" . }}-cluster
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
   name: {{ include "dex.fullname" . }}
 subjects:
 - kind: ServiceAccount
   namespace: {{ .Release.Namespace }}
   name: {{ include "dex.serviceAccountName" . }}
+{{- end }}
 {{- end }}
