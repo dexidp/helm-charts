@@ -197,10 +197,10 @@ serviceMonitor:
 
   # -- MetricRelabelConfigs to apply to samples before ingestion.
   # Relabel the metrics to be able to recognize them
-  metricRelabelings:
-    - replacement: dex_$1
-      sourceLabels: [__name__]
-      targetLabel: __name__
+  metricRelabelings: []
+    # - replacement: dex_$1
+    #   sourceLabels: [__name__]
+    #   targetLabel: __name__
 
   # -- RelabelConfigs to apply to samples before scraping.
   relabelings: []
