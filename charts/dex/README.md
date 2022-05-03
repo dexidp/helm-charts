@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.8.2](https://img.shields.io/badge/version-0.8.2-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.31.1](https://img.shields.io/badge/app%20version-2.31.1-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.9.0](https://img.shields.io/badge/version-0.9.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.31.1](https://img.shields.io/badge/app%20version-2.31.1-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
@@ -120,8 +120,11 @@ ingress:
 | hostAliases | list | `[]` | A list of hosts and IPs that will be injected into the pod's hosts file if specified. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution) |
 | https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
-| configSecret.create | bool | `true` | Enable creating a secret from the values passed to `config`. If set to false, name must point to an existing secret. |
-| configSecret.name | string | `""` | The name of the secret to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. |
+| configType | string | `"secret"` | The manifest type from which the content of the `config` should be resolved from. Can be `secret` or `configMap`. |
+| configSecret.create | bool | `true` | Enable creating a secret from the values passed to `config`. If set to false, name must point to an existing secret. Only active when `configType` is `secret`. |
+| configSecret.name | string | `""` | The name of the secret to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. Only active when `configType` is `secret`. |
+| configMap.create | bool | `true` | Enable creating a configMap from the values passed to `config`. If set to false, name must point to an existing config map. Only active when `configType` is `configMap`. |
+| configMap.name | string | `""` | The name of the configMap to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to configMap that contains at least a `config.yaml` key. Only active when `configType` is `configMap`. |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |
 | volumes | list | `[]` | Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details. |
 | volumeMounts | list | `[]` | Additional [volume mounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details. |
