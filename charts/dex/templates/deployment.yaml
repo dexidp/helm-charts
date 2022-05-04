@@ -110,9 +110,15 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
+        {{- if eq .Values.configType "secret" }}
         - name: config
           secret:
             secretName: {{ include "dex.configSecretName" . }}
+        {{- else if eq .Values.configType "configMap" }}
+        - name: config
+          configMap:
+            name: {{ include "dex.configMapName" . }}
+        {{- end }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}

@@ -1,0 +1,11 @@
+{{- if and (eq .Values.configType "configMap") .Values.configSecret.create -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dex.configMapName" . }}
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+{{ .Values.config | toYaml | indent 4 }}
+{{- end }}
