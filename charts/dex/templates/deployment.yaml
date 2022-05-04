@@ -117,7 +117,7 @@ spec:
         {{- else if eq .Values.configType "configMap" }}
         - name: config
           configMap:
-            mame: {{ include "dex.configMapName" . }}
+            name: {{ include "dex.configMapName" . }}
         {{- end }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
