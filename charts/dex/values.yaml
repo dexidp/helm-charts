@@ -37,6 +37,9 @@ grpc:
   # Read more in the [documentation](https://dexidp.io/docs/api/).
   enabled: false
 
+# -- Full Path to the dex config file.
+configFile: "/etc/dex/config.yaml"
+
 configSecret:
   # -- Enable creating a secret from the values passed to `config`.
   # If set to false, name must point to an existing secret.

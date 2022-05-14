@@ -62,7 +62,7 @@ spec:
             {{- end }}
             - --telemetry-addr
             - 0.0.0.0:5558
-            - /etc/dex/config.yaml
+            - {{ .Values.configFile }}
           env:
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
@@ -103,19 +103,9 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: config
-              mountPath: /etc/dex
-              readOnly: true
-          {{- with .Values.volumeMounts }}
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            {{- (include "dex.volumeMounts" .) | nindent 12 }}
       volumes:
-        - name: config
-          secret:
-            secretName: {{ include "dex.configSecretName" . }}
-      {{- with .Values.volumes }}
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- (include "dex.volumes" .) | nindent 8 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
