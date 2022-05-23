@@ -4,6 +4,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: "Correct indentation for `ServiceMonitor` when using `serviceMonitor.labels`"
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.31.1
+    apiVersion: v2
+    appVersion: 2.31.1
+    created: "2022-05-23T23:17:44.014870095Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: baee6d52dd7caff65158fc92c226d8b07347e08a41a1269e107ae7623733a03b
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.8.3/dex-0.8.3.tgz
+    version: 0.8.3
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: "Restore `ClusterRoleBinding` when using cluster scoped permissions"
       artifacthub.io/images: |
         - name: dex
@@ -817,4 +850,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2022-04-06T08:08:12.90123143Z"
+generated: "2022-05-23T23:17:44.015199999Z"
