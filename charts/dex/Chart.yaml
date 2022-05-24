@@ -22,8 +22,6 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: "Added configFile value to allow for a custom config file location"
-    - kind: added
       description: "Added volumes and volumeMounts helpers to only mount secret if a secret is needed"
   artifacthub.io/images: |
     - name: dex
