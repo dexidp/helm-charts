@@ -62,7 +62,7 @@ spec:
             {{- end }}
             - --telemetry-addr
             - 0.0.0.0:5558
-            - {{ .Values.configFile }}
+            - /etc/dex/config.yaml
           env:
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
