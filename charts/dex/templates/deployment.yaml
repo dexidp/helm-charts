@@ -47,8 +47,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
+          command:
             - dex
+          args:
             - serve
             - --web-http-addr
             - 0.0.0.0:5556
