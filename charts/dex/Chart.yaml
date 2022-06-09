@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: dex
 version: 0.8.3
-appVersion: "2.31.1"
+appVersion: "2.32.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 icon: https://dexidp.io/favicon.png
@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Correct indentation for `ServiceMonitor` when using `serviceMonitor.labels`"
+      description: "Update Dex to 2.32.0"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.31.1
+      image: ghcr.io/dexidp/dex:v2.32.0
