@@ -22,7 +22,9 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Update Dex to 2.32.0"
+      description: "Separate dex command from arguments"
+    - kind: add
+      description: "Optional podLabels support"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.32.0

@@ -106,6 +106,9 @@ rbac:
 # -- Annotations to be added to pods.
 podAnnotations: {}
 
+# -- Labels to be added to pods.
+podLabels: {}
+
 podDisruptionBudget:
   # -- Enable a [pod distruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) to help dealing with [disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
   # It is **highly recommended** for webhooks as disruptions can prevent launching new pods.
