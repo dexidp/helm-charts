@@ -111,6 +111,7 @@ ingress:
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | replicaCount | int | `1` | Number of replicas (pods) to launch. |
+| commonLabels | object | `{}` | Labels to apply to all resources and selectors. |
 | image.repository | string | `"ghcr.io/dexidp/dex"` | Name of the image repository to pull the container image from. |
 | image.pullPolicy | string | `"IfNotPresent"` | [Image pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images) for updating already existing images on a node. |
 | image.tag | string | `""` | Image tag override for the default value (chart appVersion). |

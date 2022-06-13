@@ -48,6 +48,9 @@ Selector labels
 {{- define "dex.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "dex.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- if .Values.commonLabels}}
+{{ toYaml .Values.commonLabels }}
+{{- end }}
 {{- end }}
 
 {{/*
