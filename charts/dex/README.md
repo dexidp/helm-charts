@@ -166,7 +166,8 @@ ingress:
 | affinity | object | `{}` | [Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) configuration. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling) for details. |
 | topologySpreadConstraints | list | `[]` | [TopologySpreadConstraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) configuration. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling) for details. |
 | strategy | object | `{}` | Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration. |
-| networkPolicy | object | Disabled by default. | [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) configuration (see [values.yaml](values.yaml) for details). |
+| networkPolicy.enabled | bool | `false` | Create [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) |
+| networkPolicy.egressRules | list | `[]` | A list of network policy egress rules |
 
 ## Migrating from stable/dex (or banzaicloud-stable/dex) chart
 
