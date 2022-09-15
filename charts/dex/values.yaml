@@ -55,6 +55,10 @@ configSecret:
 # See the [official documentation](https://dexidp.io/docs/).
 config: {}
 
+# -- [Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/).
+# See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#containers) for details.
+initContainers: []
+
 # -- Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/).
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details.
 volumes: []
