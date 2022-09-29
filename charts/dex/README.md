@@ -143,6 +143,8 @@ ingress:
 | service.annotations | object | `{}` | Annotations to be added to the service. |
 | service.type | string | `"ClusterIP"` | Kubernetes [service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types). |
 | service.clusterIP | string | `""` | Internal cluster service IP (when applicable) |
+| service.loadBalancerIP | string | `nil` | IP value to LoadBalancer service type" (when applicable) |
+| service.externalIPs | list | `nil` | Exposing an External IP (when applicable) (https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address). |
 | service.ports.http.port | int | `5556` | HTTP service port |
 | service.ports.http.nodePort | int | `nil` | HTTP node port (when applicable) |
 | service.ports.https.port | int | `5554` | HTTPS service port |
