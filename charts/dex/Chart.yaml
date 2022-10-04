@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: dex
 version: 0.11.1
-appVersion: "2.34.0"
+appVersion: "2.35.1"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 icon: https://dexidp.io/favicon.png
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: added
-      description: "`networkPolicy` value to enable network policy and define optional custom Egress rules"
+    - kind: changed
+      description: "Update Dex to 2.35.1"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.34.0
+      image: ghcr.io/dexidp/dex:v2.35.1
