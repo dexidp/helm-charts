@@ -107,6 +107,9 @@ rbac:
   # If disabled, the operator is responsible for creating the necessary resources (ClusterRole and RoleBinding or CRD's)
   createClusterScoped: true
 
+# -- Annotations to be added to the deployment.
+deploymentAnnotations: {}
+
 # -- Annotations to be added to pods.
 podAnnotations: {}
 

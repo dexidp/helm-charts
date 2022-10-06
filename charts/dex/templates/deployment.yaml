@@ -4,6 +4,10 @@ metadata:
   name: {{ include "dex.fullname" . }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.deploymentAnnotations}}
+      {{- toYaml . | nindent 4 }}
+    {{- end}}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
