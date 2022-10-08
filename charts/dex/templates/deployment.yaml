@@ -21,7 +21,7 @@ spec:
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{ if .Values.configSecret.create }}
+      {{ if or .Values.configSecret.create .Values.secrets }}
         checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
       {{- end }}
       labels:
@@ -67,6 +67,13 @@ spec:
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
               value: {{ $value | quote }}
+            {{- end }}
+            {{- range $key, $value := .Values.secrets }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  key: {{ $key }}
+                  name: {{ include "dex.configSecretName" $ }}
             {{- end }}
           {{- with .Values.envVars }}
             {{- toYaml . | nindent 12 }}
