@@ -40,6 +40,9 @@ helm.sh/chart: {{ include "dex.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.commonLabels}}
+{{ toYaml .Values.commonLabels }}
+{{- end }}
 {{- end }}
 
 {{/*
@@ -48,9 +51,6 @@ Selector labels
 {{- define "dex.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "dex.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-{{- if .Values.commonLabels}}
-{{ toYaml .Values.commonLabels }}
-{{- end }}
 {{- end }}
 
 {{/*
