@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Update Dex to 2.35.1"
+      description: "Update Dex to 2.35.3"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.35.1
+      image: ghcr.io/dexidp/dex:v2.35.3
