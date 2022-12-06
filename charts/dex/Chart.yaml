@@ -21,8 +21,6 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: "Update Dex to 2.35.3"
     - kind: added
       description: Enable HTTPS communication between Ingress and Service when https.enabled is true.
       links:
