@@ -178,6 +178,7 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+    # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 
   # -- Ingress host configuration.
   # @default -- See [values.yaml](values.yaml).
