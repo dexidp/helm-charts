@@ -171,6 +171,9 @@ ingress:
   # -- Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
   enabled: false
 
+  # -- Enable ingress to target https container port, https.enabled must be true
+  https: false
+
   # -- Ingress [class name](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class).
   className: ""
 
