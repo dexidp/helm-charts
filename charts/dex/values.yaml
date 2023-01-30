@@ -107,8 +107,15 @@ rbac:
   # If disabled, the operator is responsible for creating the necessary resources (ClusterRole and RoleBinding or CRD's)
   createClusterScoped: true
 
+# -- Annotations to be added to deployment.
+annotations: {}
+# -- Labels to be added to deployment.
+labels: {}
+
 # -- Annotations to be added to pods.
 podAnnotations: {}
+# -- Labels to be added to pods.
+podLabels: {}
 
 podDisruptionBudget:
   # -- Enable a [pod distruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) to help dealing with [disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
