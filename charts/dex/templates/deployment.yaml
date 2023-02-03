@@ -109,6 +109,22 @@ spec:
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        {{- if .Values.sidecarContainer }}
+        - name: "{{ .Values.sidecarContainer.name }}"
+          image: "{{ .Values.sidecarContainer.repository }}:
+                  {{ .Values.sidecarContainer.tag }}"
+          imagePullPolicy: {{ .Values.sidecarContainer.pullPolicy }}
+          ports:
+          {{- with .Values.sidecarContainer.ports }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if .Values.sidecarContainer.volumeMounts }}
+          volumeMounts:
+          {{- with .Values.sidecarContainer.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- end }}
+        {{- end }}
       volumes:
         - name: config
           secret:

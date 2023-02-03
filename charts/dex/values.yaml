@@ -279,3 +279,19 @@ networkPolicy:
   #    ports:
   #      - port: 636
   #        protocol: TCP
+
+# Allow extra sidecar container
+sidecarContainer: ""
+  # Example of sidecar configuration
+  # name: dex-sidecar-nginx-proxy
+  # repository: ghcr.io/nginxinc/nginx-unprivileged
+  # tag: 1.23.3
+  # pullPolicy: IfNotPresent
+  # volumeMounts:
+  #   - mountPath: /etc/nginx
+  #     name: nginx-conf
+  #     readOnly: true
+  # ports:
+  #   - containerPort: 8443
+  #     https-nginx
+  #     protocol: TCP
