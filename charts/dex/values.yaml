@@ -281,7 +281,7 @@ networkPolicy:
   #        protocol: TCP
 
 # Allow extra containers
-extraContainers: ""
+extraContainers: []
   # Example of nginx sidecar configuration
   #- name: dex-sidecar-nginx-proxy
   #  image: ghcr.io/nginxinc/nginx-unprivileged:1.23.3

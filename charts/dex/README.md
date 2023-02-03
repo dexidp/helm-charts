@@ -169,6 +169,7 @@ ingress:
 | strategy | object | `{}` | Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration. |
 | networkPolicy.enabled | bool | `false` | Create [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) |
 | networkPolicy.egressRules | list | `[]` | A list of network policy egress rules |
+| extraContainers | list | `[]` | Additionnals container in the pod. See the documentation of [extraContainers](https://github.com/criblio/helm-charts/blob/master/common_docs/EXTRA_EXAMPLES.md#using-extracontainers-) configuration. |
 
 ## Migrating from stable/dex (or banzaicloud-stable/dex) chart
 
