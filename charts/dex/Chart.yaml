@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: "Common labels to all resources created by the chart"
+      description: "Add extra container possibility in deployment chart"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.35.3
