@@ -5,11 +5,11 @@ metadata:
   labels:
     {{- include "dex.labels" . | nindent 4 }}
     {{ with .Values.labels }}
-    {{- . | nindent 4 }}
+    {{- toYaml . | nindent 4 }}
     {{- end }}
   {{ with .Values.annotations }}
   annotations:
-    {{- . | nindent 4 }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
