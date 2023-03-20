@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Save README.md in temporary file
         run: cp -f README.md ${{ runner.temp }}/README.md
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
 
