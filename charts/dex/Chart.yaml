@@ -1,8 +1,8 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.13.0
-appVersion: "2.35.3"
+version: 0.14.0
+appVersion: "2.36.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 icon: https://dexidp.io/favicon.png
@@ -25,4 +25,4 @@ annotations:
       description: "Common labels to all resources created by the chart"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.35.3
+      image: ghcr.io/dexidp/dex:v2.36.0
