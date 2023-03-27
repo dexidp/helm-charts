@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.14.0
+version: 0.14.1
 appVersion: "2.36.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: "Common labels to all resources created by the chart"
+      description: "Use updated HorizontalPodAutoscaler API Version which is no longer served in K8s >=1.25"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.36.0
