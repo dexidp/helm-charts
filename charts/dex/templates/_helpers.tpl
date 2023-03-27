@@ -74,3 +74,27 @@ Create the name of the secret containing the config file to use
 {{- default "default" .Values.configSecret.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create Volumes
+*/}}
+{{- define "dex.volumes" -}}
+{{- if or .Values.configSecret.create .Values.configSecret.name }}
+{{- $defaultVolume := list (dict "name" "config" "secret" (dict "secretName" (include "dex.configSecretName" .))) -}}
+{{ concat $defaultVolume .Values.volumes | toYaml }}
+{{- else -}}
+{{ .Values.volumes | toYaml }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create Volume Mounts
+*/}}
+{{- define "dex.volumeMounts" -}}
+{{- if or .Values.configSecret.create .Values.configSecret.name }}
+{{- $defaultMount := list (dict "name" "config" "mountPath" "/etc/dex" "readOnly" "true") -}}
+{{ concat $defaultMount .Values.volumeMounts | toYaml }}
+{{- else -}}
+{{ .Values.volumeMounts | toYaml }}
+{{- end }}
+{{- end }}
