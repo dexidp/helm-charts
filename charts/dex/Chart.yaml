@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.14.1
+version: 0.14.2
 appVersion: "2.36.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -22,7 +22,9 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: "Supporting template evaluation in ingress hosts"
+      description: "Supporting custom labels/annotations on deployment/pod"
+    - kind: added
+      description: "Add metricRelabelings, scheme, tlsConfig, bearerTokenFile and relabelings to ServiceMonitor"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.36.0
