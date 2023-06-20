@@ -23,6 +23,8 @@ annotations:
   artifacthub.io/changes: |
     - kind: added
       description: "Supporting custom labels/annotations on deployment/pod"
+    - kind: added
+      description: "Add metricRelabelings, scheme, tlsConfig, bearerTokenFile and relabelings to ServiceMonitor"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.36.0
