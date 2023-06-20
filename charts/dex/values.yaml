@@ -108,9 +108,9 @@ rbac:
   createClusterScoped: true
 
 # -- Annotations to be added to deployment.
-annotations: {}
+deploymentAnnotations: {}
 # -- Labels to be added to deployment.
-labels: {}
+deploymentLabels: {}
 
 # -- Annotations to be added to pods.
 podAnnotations: {}
