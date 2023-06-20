@@ -6,13 +6,13 @@ config:
 
   enablePasswordDB: true
 
-annotations:
+deploymentAnnotations:
   reloader.stakater.com/auto: "true"
 
 podAnnotations:
   vault.security.banzaicloud.io/vault-addr: "https://vault.vault:8200"
 
-labels:
+deploymentLabels:
   hello: world
 
 podLabels:

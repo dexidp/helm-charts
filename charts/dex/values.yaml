@@ -109,11 +109,13 @@ rbac:
 
 # -- Annotations to be added to deployment.
 deploymentAnnotations: {}
+
 # -- Labels to be added to deployment.
 deploymentLabels: {}
 
 # -- Annotations to be added to pods.
 podAnnotations: {}
+
 # -- Labels to be added to pods.
 podLabels: {}
 
