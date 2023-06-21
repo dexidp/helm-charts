@@ -166,8 +166,10 @@ ingress:
 | serviceMonitor.labels | object | `{}` | Labels to be added to the ServiceMonitor. |
 | serviceMonitor.annotations | object | `{}` | Annotations to be added to the ServiceMonitor. |
 | serviceMonitor.scheme | string | `""` | HTTP scheme to use for scraping. Can be used with `tlsConfig` for example if using istio mTLS. |
+| serviceMonitor.path | string | `"/metrics"` | HTTP path to scrape for metrics. |
 | serviceMonitor.tlsConfig | object | `{}` | TLS configuration to use when scraping the endpoint. For example if using istio mTLS. |
 | serviceMonitor.bearerTokenFile | string | `nil` | Prometheus scrape bearerTokenFile |
+| serviceMonitor.honorLabels | bool | `false` | HonorLabels chooses the metric's labels on collisions with target labels. |
 | serviceMonitor.metricRelabelings | list | `[]` | Prometheus scrape metric relabel configs to apply to samples before ingestion. |
 | serviceMonitor.relabelings | list | `[]` | Relabel configs to apply to samples before ingestion. |
 | resources | object | No requests or limits. | Container resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#resources) for details. |
