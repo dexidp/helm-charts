@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.14.3
+version: 0.14.4
 appVersion: "2.36.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: added
-      description: "Use updated HorizontalPodAutoscaler API Version which is no longer served in K8s >=1.25"
+    - kind: fixed
+      description: "Fixed error stemming from the formatting of the new autoscaling API version"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.36.0
