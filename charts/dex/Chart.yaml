@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.15.0
+version: 0.15.1
 appVersion: "2.37.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: "Update Dex to 2.37.0"
+    - kind: added
+      description: "Add spec.revisionHistoryLimit config possibility for Deployment resource"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.37.0
