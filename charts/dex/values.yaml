@@ -138,6 +138,10 @@ priorityClassName: ""
 podSecurityContext: {}
   # fsGroup: 2000
 
+# -- Define the [count of deployment revisions](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy) to be kept.
+# May be set to 0 in case of GitOps deployment approach.
+revisionHistoryLimit: 10
+
 # -- Container [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container).
 # See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1) for details.
 securityContext: {}
