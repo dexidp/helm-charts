@@ -328,3 +328,21 @@ networkPolicy:
   #    ports:
   #      - port: 636
   #        protocol: TCP
+
+# -- List of extra manifests to deploy. Will be passed through `tpl` to support templating
+extraObjects: []
+  # - apiVersion: external-secrets.io/v1beta1
+  #   kind: ExternalSecret
+  #   metadata:
+  #     name: my-external-secret
+  #     namespace: '{{ .Release.Namespace }}'
+  #   spec:
+  #     secretStoreRef:
+  #       kind: ClusterSecretStore
+  #       name: my-secret-store
+  #     target:
+  #       name: my-kubernetes-secret
+  #     data:
+  #       - secretKey: secretKey
+  #         remoteRef:
+  #           key: /path/to/my-secret
