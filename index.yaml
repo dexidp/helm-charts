@@ -3,6 +3,39 @@ entries:
   dex:
   - annotations:
       artifacthub.io/changes: |
+        - kind: added
+          description: "Add default values for path and honorLabels to ServiceMonitor"
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.37.0
+    apiVersion: v2
+    appVersion: 2.37.0
+    created: "2023-08-17T20:51:07.404644259Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: 8100ba92ee85ee1b25298bcf9ea72f09a004ef502e43f38e45bf793cae5b88f3
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.15.3/dex-0.15.3.tgz
+    version: 0.15.3
+  - annotations:
+      artifacthub.io/changes: |
         - kind: fixed
           description: "Fixed error stemming from the formatting of the new autoscaling API version"
       artifacthub.io/images: |
@@ -1314,4 +1347,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2023-07-10T21:06:29.966242135Z"
+generated: "2023-08-17T20:51:07.405264467Z"
