@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.15.3](https://img.shields.io/badge/version-0.15.3-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.37.0](https://img.shields.io/badge/app%20version-2.37.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.16.0](https://img.shields.io/badge/version-0.16.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.38.0](https://img.shields.io/badge/app%20version-2.38.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
@@ -50,7 +50,7 @@ ingress:
 ### Minimal TLS configuration
 
 HTTPS is basically mandatory these days, especially for authentication and authorization services.
-There are several solutions for protecting services with TLS in Kubernetes,
+There are several solutions for protecting services with TlS in Kubernetes,
 but by far the most popular and portable is undoubtedly [Cert Manager](https://cert-manager.io).
 
 Cert Manager can be [installed](https://cert-manager.io/docs/installation/kubernetes) with a few steps:
