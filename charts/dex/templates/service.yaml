@@ -50,7 +50,7 @@ spec:
     {{- end }}
     - name: telemetry
       port: 5558
-      {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) >Values.service.ports.telemetry.nodePort }}
+      {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) .Values.service.ports.telemetry.nodePort }}
       nodePort: {{ .Values.service.ports.telemetry.nodePort }}
       {{- end}}
       targetPort: telemetry
