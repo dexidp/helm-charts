@@ -50,6 +50,9 @@ spec:
     {{- end }}
     - name: telemetry
       port: 5558
+      {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) .Values.service.ports.telemetry.nodePort }}
+      nodePort: {{ .Values.service.ports.telemetry.nodePort }}
+      {{- end}}
       targetPort: telemetry
       protocol: TCP
       {{- if semverCompare ">=1.20-0" .Capabilities.KubeVersion.GitVersion }}

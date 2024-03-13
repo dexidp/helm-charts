@@ -184,6 +184,9 @@ service:
       # -- (int) gRPC node port (when applicable)
       nodePort:
 
+    telemetry:
+      nodePort: null
+
 ingress:
   # -- Enable [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
   enabled: false
