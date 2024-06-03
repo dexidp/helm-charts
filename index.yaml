@@ -4,6 +4,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: "Dex 2.40.0 release"
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.40.0
+    apiVersion: v2
+    appVersion: 2.40.0
+    created: "2024-06-03T20:08:59.33956305Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: 296b24a9a461295874d244af55b594679bb3fb6b9f408fa874066bf5d956fb0b
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.hu
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.18.0/dex-0.18.0.tgz
+    version: 0.18.0
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: "Dex 2.39.1 release"
       artifacthub.io/images: |
         - name: dex
@@ -1446,4 +1479,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2024-04-09T12:34:47.270284026Z"
+generated: "2024-06-03T20:08:59.340131916Z"
