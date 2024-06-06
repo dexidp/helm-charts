@@ -335,10 +335,10 @@ networkPolicy:
   #      - port: 636
   #        protocol: TCP
 
-# -- extra objects to deploy (passed through tpl)
-# can be defined as a list or dictionary
-# list objects can template keys, but doesn't support merging from multiple values files
-# dictionaries can't template keys, but can merge values files which makes it better suited for use with encrypted and unencrypted values files
+# -- extra objects to deploy (passed through tpl).
+# Can be defined as a list or dictionary.
+# List objects can template keys, but doesn't support merging from multiple values files.
+# Dictionaries can't template keys, but can merge values files which makes it better suited for use with encrypted and unencrypted values files.
 extraObjects:
 # meaningless_key:
 #   apiVersion: v1
