@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.18.0](https://img.shields.io/badge/version-0.18.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.40.0](https://img.shields.io/badge/app%20version-2.40.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.19.0](https://img.shields.io/badge/version-0.19.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.40.0](https://img.shields.io/badge/app%20version-2.40.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
@@ -181,6 +181,7 @@ ingress:
 | strategy | object | `{}` | Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration. |
 | networkPolicy.enabled | bool | `false` | Create [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) |
 | networkPolicy.egressRules | list | `[]` | A list of network policy egress rules |
+| extraObjects | string | `nil` | extra objects to deploy (passed through tpl). Can be defined as a list or dictionary. List objects can template keys, but doesn't support merging from multiple values files. Dictionaries can't template keys, but can merge values files which makes it better suited for use with encrypted and unencrypted values files. |
 
 ## Migrating from stable/dex (or banzaicloud-stable/dex) chart
 
