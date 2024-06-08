@@ -339,7 +339,7 @@ networkPolicy:
 # Can be defined as a list or dictionary.
 # List objects can template keys, but doesn't support merging from multiple values files.
 # Dictionaries can't template keys, but can merge values files which makes it better suited for use with encrypted and unencrypted values files.
-extraObjects:
+extraObjects: []
 # meaningless_key:
 #   apiVersion: v1
 #   kind: Secret
