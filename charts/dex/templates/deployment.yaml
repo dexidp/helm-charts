@@ -114,16 +114,20 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          {{- if .Values.configSecret.use }}
             - name: config
               mountPath: /etc/dex
               readOnly: true
+          {{- end }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
+        {{- if .Values.configSecret.use }}
         - name: config
           secret:
             secretName: {{ include "dex.configSecretName" . }}
+        {{- end }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
