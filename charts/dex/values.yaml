@@ -152,6 +152,9 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- A list of init containers to run in the pods on startup to do setup tasks.
+initContainers: []
+
 service:
   # -- Annotations to be added to the service.
   annotations: {}
