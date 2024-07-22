@@ -121,8 +121,12 @@ ingress:
 | hostAliases | list | `[]` | A list of hosts and IPs that will be injected into the pod's hosts file if specified. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution) |
 | https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
+| configSecret.enabled | bool | `true` | Enable using a secret from the values passed to `config`. If set to false, secret doesn't be used to define config. You need to enable either configSecret or configMap, but not both at the same time. |
 | configSecret.create | bool | `true` | Enable creating a secret from the values passed to `config`. If set to false, name must point to an existing secret. |
 | configSecret.name | string | `""` | The name of the secret to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. |
+| configMap.enabled | bool | `false` | Enable using a configmap from the values passed to `config`. If set to false, configmap doesn't be used to define config. You need to enable either configSecret or configMap, but not both at the same time. |
+| configMap.create | bool | `false` | Enable creating a configmap from the values passed to `config`. If set to false, name must point to an existing secret. |
+| configMap.name | string | `""` | The name of the configmap to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |
 | volumes | list | `[]` | Additional storage [volumes](https://kubernetes.io/docs/concepts/storage/volumes/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details. |
 | volumeMounts | list | `[]` | Additional [volume mounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/). See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#volumes-1) for details. |
