@@ -74,3 +74,14 @@ Create the name of the secret containing the config file to use
 {{- default "default" .Values.configSecret.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the name of the configmap containing the config file to use
+*/}}
+{{- define "dex.configMapName" -}}
+{{- if .Values.configMap.create }}
+{{- default (include "dex.fullname" .) .Values.configMap.name }}
+{{- else }}
+{{- default "default" .Values.configMap.name }}
+{{- end }}
+{{- end }}

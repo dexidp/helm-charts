@@ -1,0 +1,10 @@
+{{- if and (.Values.configMap.create) (.Values.configMap.enabled) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dex.configMapName" . }}
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+data:
+  config.yaml: {{ .Values.config | toYaml | quote }}
+{{- end }}
