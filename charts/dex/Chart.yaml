@@ -25,4 +25,4 @@ annotations:
       description: "Support ConfigMap for dex configuration"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.41.0
+      image: ghcr.io/dexidp/dex:v2.41.1
