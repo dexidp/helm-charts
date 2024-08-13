@@ -45,6 +45,7 @@ ingress:
     - host: my-issuer-url.com
       paths:
         - path: /
+          pathType: Prefix
 ```
 
 ### Minimal TLS configuration
