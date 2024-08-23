@@ -181,6 +181,7 @@ ingress:
 | strategy | object | `{}` | Deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) configuration. |
 | networkPolicy.enabled | bool | `false` | Create [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) |
 | networkPolicy.egressRules | list | `[]` | A list of network policy egress rules |
+| extraObjects | list | `[]` | A list of extra K8S manifests to deploy |
 
 ## Migrating from stable/dex (or banzaicloud-stable/dex) chart
 
