@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "dex.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
   {{- with .Values.service.annotations }}
