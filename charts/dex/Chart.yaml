@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.hu
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: "Dex 2.40.0 release"
+    - kind: added
+      description: "Support ConfigMap for dex configuration"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.40.0
