@@ -162,6 +162,9 @@ service:
   # -- Internal cluster service IP (when applicable)
   clusterIP: ""
 
+  # -- Load balancer service IP (when applicable)
+  loadBalancerIP: ""
+
   ports:
     http:
       # -- HTTP service port
