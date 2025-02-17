@@ -24,9 +24,9 @@ https://github.com/helm/helm/issues/5358
 */}}
 {{- define "dex.serviceMonitor.namespace" -}}
 {{- if .Values.serviceMonitor.namespace }}
-{{ .Values.serviceMonitor.namespace }}
+{{- .Values.serviceMonitor.namespace -}}
 {{- else }}
-{{ template "dex.namespace" . }}
+{{- template "dex.namespace" . -}}
 {{- end }}
 {{- end -}}
 
