@@ -3,7 +3,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: {{ include "dex.fullname" . }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ include "dex.namespace" . }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
 rules:
