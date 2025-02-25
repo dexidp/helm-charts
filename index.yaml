@@ -4,6 +4,39 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: "Fix Role not respecting namespaceOverride"
+      artifacthub.io/images: |
+        - name: dex
+          image: ghcr.io/dexidp/dex:v2.42.0
+    apiVersion: v2
+    appVersion: 2.42.0
+    created: "2025-02-25T11:12:41.793816051Z"
+    description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable
+      connectors.
+    digest: b5e27c1b4185dd8231686618818e82f2cae129aa165d280541b5cfa0649e75b9
+    home: https://dexidp.io/
+    icon: https://dexidp.io/favicon.png
+    keywords:
+    - oidc
+    - oauth
+    - identity-provider
+    - saml
+    kubeVersion: '>=1.14.0-0'
+    maintainers:
+    - email: mark.sagikazar@gmail.com
+      name: sagikazarmark
+      url: https://sagikazarmark.com
+    name: dex
+    sources:
+    - https://github.com/dexidp/dex
+    - https://github.com/dexidp/helm-charts/tree/master/charts/dex
+    type: application
+    urls:
+    - https://github.com/dexidp/helm-charts/releases/download/dex-0.22.1/dex-0.22.1.tgz
+    version: 0.22.1
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: "Update Dex to 2.42.0"
       artifacthub.io/images: |
         - name: dex
@@ -1677,4 +1710,4 @@ entries:
     urls:
     - https://github.com/dexidp/helm-charts/releases/download/dex-0.0.6/dex-0.0.6.tgz
     version: 0.0.6
-generated: "2025-02-19T13:42:27.907037709Z"
+generated: "2025-02-25T11:12:41.794001827Z"
