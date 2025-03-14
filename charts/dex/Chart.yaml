@@ -5,7 +5,7 @@ version: 0.22.1
 appVersion: "2.42.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
-icon: https://dexidp.io/favicon.png
+icon: https://dexidp.io/favicons/favicon.png
 keywords:
   - oidc
   - oauth
