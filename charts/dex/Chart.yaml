@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Fix Role not respecting namespaceOverride"
+      description: "Fix chart icon url"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.42.0
