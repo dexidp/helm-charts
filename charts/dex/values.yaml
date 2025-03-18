@@ -341,13 +341,11 @@ networkPolicy:
   #      - port: 636
   #        protocol: TCP
 
-# -- extra objects to deploy (passed through tpl).
-# Can be defined as a list or dictionary.
-# List objects can template keys, but doesn't support merging from multiple values files.
-# Dictionaries can't template keys, but can merge values files which makes it better suited for use with encrypted and unencrypted values files.
+# -- extra objects to deploy
+# extraObjects can be of type map or slice.  If slice, keys are ignored and only values are used.
+# items contained within extraObjects can be defined as dict or string and are passed through tpl.
 extraObjects: []
-# meaningless_key:
-#   apiVersion: v1
+# - apiVersion: v1
 #   kind: Secret
 #   type: Opaque
 #   metadata:
@@ -355,15 +353,3 @@ extraObjects: []
 #   data:
 #     token: |
 #       {{ print "super secret JSON file" | b64enc }}
-# - |
-#   {{- range (list "1" "2" "3") }}
-#   ---
-#   apiVersion: v1
-#   kind: Secret
-#   type: Opaque
-#   metadata:
-#     name: google-serviceaccount
-#   data:
-#     {{ printf "serviceaccount-%s" . }}: |
-#       {{ print "super secret JSON file" | b64enc }}
-#   {{- end }}
