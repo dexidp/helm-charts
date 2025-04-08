@@ -99,3 +99,12 @@ Create the name of the secret containing the config file to use
 {{- default "default" .Values.configSecret.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Use tpl for dynamic values in topologySpreadConstraints
+*/}}
+{{- define "dex.topologySpreadConstraints" -}}
+{{- if .Values.topologySpreadConstraints }}
+{{- tpl (toYaml .Values.topologySpreadConstraints) . -}}
+{{- end }}
+{{- end }}
