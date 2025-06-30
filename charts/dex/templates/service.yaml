@@ -19,6 +19,15 @@ spec:
   loadBalancerIP: {{ . }}
   {{- end }}
   {{- end }}
+  {{- if .Values.service.ipFamilyPolicy }}
+  ipFamilyPolicy: {{ .Values.service.ipFamilyPolicy }}
+  {{- end }}
+  {{- if .Values.service.ipFamilies }}
+  ipFamilies:
+  {{- range .Values.service.ipFamilies }}
+    - {{ . }}
+  {{- end }}
+  {{- end }}
   ports:
     - name: http
       port: {{ .Values.service.ports.http.port }}

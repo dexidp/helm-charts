@@ -171,6 +171,12 @@ service:
   # -- Load balancer service IP (when applicable)
   loadBalancerIP: ""
 
+  # -- IP family policy (when applicable)
+  ipFamilyPolicy: ""
+
+  # -- IP families (when applicable)
+  ipFamilies: []
+
   ports:
     http:
       # -- HTTP service port
