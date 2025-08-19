@@ -19,12 +19,12 @@ spec:
   loadBalancerIP: {{ . }}
   {{- end }}
   {{- end }}
-  {{- if .Values.service.ipFamilyPolicy }}
-  ipFamilyPolicy: {{ .Values.service.ipFamilyPolicy }}
+  {{- with .Values.service.ipFamilyPolicy }}
+  ipFamilyPolicy: {{ . }}
   {{- end }}
-  {{- if .Values.service.ipFamilies }}
+  {{- with .Values.service.ipFamilies }}
   ipFamilies:
-  {{- range .Values.service.ipFamilies }}
+  {{- range . }}
     - {{ . }}
   {{- end }}
   {{- end }}
