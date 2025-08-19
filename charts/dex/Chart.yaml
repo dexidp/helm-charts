@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.23.1
+version: 0.24.0
 appVersion: "2.42.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.com
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: "Fix chart icon url"
+    - kind: added
+      description: "Add support for IPv6 and IPv4/IPv6 dual-stack"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.42.0
