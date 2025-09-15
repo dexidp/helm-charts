@@ -1,11 +1,11 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.18.0
-appVersion: "2.40.0"
+version: 0.24.0
+appVersion: "2.44.0"
 kubeVersion: ">=1.14.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
-icon: https://dexidp.io/favicon.png
+icon: https://dexidp.io/favicons/favicon.png
 keywords:
   - oidc
   - oauth
@@ -18,11 +18,11 @@ sources:
 maintainers:
   - name: sagikazarmark
     email: mark.sagikazar@gmail.com
-    url: https://sagikazarmark.hu
+    url: https://sagikazarmark.com
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Dex 2.40.0 release"
+      description: "Update Dex to 2.44.0"
   artifacthub.io/images: |
     - name: dex
-      image: ghcr.io/dexidp/dex:v2.40.0
+      image: ghcr.io/dexidp/dex:v2.44.0
