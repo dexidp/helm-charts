@@ -171,6 +171,9 @@ service:
   # -- Load balancer service IP (when applicable)
   loadBalancerIP: ""
 
+  # -- Load Balancer service source ranger (when applicable)
+  loadBalancerSourceRanges: []
+
   ports:
     http:
       # -- HTTP service port
