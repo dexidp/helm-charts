@@ -1,30 +1,19 @@
-{{- if not .Values.knative.enabled }}
-apiVersion: apps/v1
-kind: Deployment
+{{- if .Values.knative.enabled }}
+apiVersion: serving.knative.dev/v1
+kind: Service
 metadata:
   name: {{ include "dex.fullname" . }}
   namespace: {{ include "dex.namespace" . }}
   labels:
     {{- include "dex.labels" . | nindent 4 }}
-    {{ with .Values.deploymentLabels }}
+    {{- with .Values.deploymentLabels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-  {{ with .Values.deploymentAnnotations }}
+  {{- with .Values.deploymentAnnotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
-  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
-  {{- with .Values.strategy }}
-  strategy:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-  selector:
-    matchLabels:
-      {{- include "dex.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
@@ -34,12 +23,31 @@ spec:
       {{ if .Values.configSecret.create }}
         checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
       {{- end }}
+      {{- with .Values.knative.autoscaling.minScale }}
+        autoscaling.knative.dev/min-scale: {{ . | quote }}
+      {{- end }}
+      {{- with .Values.knative.autoscaling.maxScale }}
+        autoscaling.knative.dev/max-scale: {{ . | quote }}
+      {{- end }}
+      {{- with .Values.knative.annotations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
         {{- include "dex.selectorLabels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
+      containerConcurrency: {{ .Values.knative.containerConcurrency }}
+      {{- with .Values.knative.timeoutSeconds }}
+      timeoutSeconds: {{ . }}
+      {{- end }}
+      {{- with .Values.knative.responseStartTimeoutSeconds }}
+      responseStartTimeoutSeconds: {{ . }}
+      {{- end }}
+      {{- with .Values.knative.idleTimeoutSeconds }}
+      idleTimeoutSeconds: {{ . }}
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -48,16 +56,20 @@ spec:
       {{- with .Values.priorityClassName }}
       priorityClassName: {{ . | quote }}
       {{- end }}
+      {{- with .Values.podSecurityContext }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- with .Values.hostAliases }}
       hostAliases:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- if .Values.image.digest }}
           image: "{{ tpl .Values.image.repository . }}@{{ tpl .Values.image.digest . }}"
           {{- else }}
@@ -69,14 +81,6 @@ spec:
             - serve
             - --web-http-addr
             - 0.0.0.0:5556
-            {{- if .Values.https.enabled }}
-            - --web-https-addr
-            - 0.0.0.0:5554
-            {{- end }}
-            {{- if .Values.grpc.enabled }}
-            - --grpc-addr
-            - 0.0.0.0:5557
-            {{- end }}
             - --telemetry-addr
             - 0.0.0.0:5558
             - /etc/dex/config.yaml
@@ -93,30 +97,16 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           ports:
-            - name: http
+            - name: http1
               containerPort: 5556
               protocol: TCP
-            {{- if .Values.https.enabled }}
-            - name: https
-              containerPort: 5554
-              protocol: TCP
-            {{- end }}
-            {{- if .Values.grpc.enabled }}
-            - name: grpc
-              containerPort: 5557
-              protocol: TCP
-            {{- end }}
-            - name: telemetry
-              containerPort: 5558
-              protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /healthz/live
-              port: telemetry
+            tcpSocket:
+              port: 5556
           readinessProbe:
             httpGet:
               path: /healthz/ready
-              port: telemetry
+              port: 5558
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

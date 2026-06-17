@@ -1,3 +1,4 @@
+{{- if not .Values.knative.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -63,3 +64,4 @@ spec:
       {{- end }}
   selector:
     {{- include "dex.selectorLabels" . | nindent 4 }}
+{{- end }}

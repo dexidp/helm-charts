@@ -21,6 +21,12 @@ spec:
       {{- include "dex.selectorLabels" . | nindent 6 }}
   ingress:
     - ports:
+        {{- if .Values.knative.enabled }}
+        - port: 8012
+        - port: 8112
+        - port: 9090
+        - port: 9091
+        {{- else }}
         - port: http
         {{- if .Values.https.enabled }}
         - port: https
@@ -29,6 +35,7 @@ spec:
         - port: grpc
         {{- end }}
         - port: telemetry
+        {{- end }}
   {{- with .Values.networkPolicy.egressRules }}
   egress:
     {{- toYaml . | nindent 4 }}
