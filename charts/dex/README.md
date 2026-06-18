@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.24.1](https://img.shields.io/badge/version-0.24.1-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.44.0](https://img.shields.io/badge/app%20version-2.44.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.25.0](https://img.shields.io/badge/version-0.25.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.44.0](https://img.shields.io/badge/app%20version-2.44.0-informational?style=flat-square) ![kube version: >=1.14.0-0](https://img.shields.io/badge/kube%20version->=1.14.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
@@ -106,6 +106,26 @@ ingress:
       secretName: dex-cert
 ```
 
+### Knative configuration
+
+This chart can render a Knative `Service` instead of the default Kubernetes `Deployment` and `Service`:
+
+```yaml
+knative:
+  enabled: true
+
+config:
+  issuer: https://dex.example.com
+
+  storage:
+    type: memory
+
+  enablePasswordDB: true
+```
+
+In Knative mode, Dex serves on its HTTP endpoint (`5556`) and exposes telemetry on `5558` for health probes.
+Knative manages routing and autoscaling for the workload, so Kubernetes-level features such as `ingress`, `httpRoute`, `autoscaling`, and `podDisruptionBudget` are not used and should be left disabled.
+
 ## Values
 
 | Key | Type | Default | Description |
@@ -123,6 +143,14 @@ ingress:
 | hostAliases | list | `[]` | A list of hosts and IPs that will be injected into the pod's hosts file if specified. See the [API reference](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution) |
 | https.enabled | bool | `false` | Enable the HTTPS endpoint. |
 | grpc.enabled | bool | `false` | Enable the gRPC endpoint. Read more in the [documentation](https://dexidp.io/docs/api/). |
+| knative.enabled | bool | `false` | Enable rendering a Knative Service instead of a Kubernetes Deployment and Service. |
+| knative.annotations | object | `{}` | Additional annotations to add to the Knative revision template, for example autoscaling options not covered by `knative.autoscaling`. |
+| knative.containerConcurrency | int | `0` | Hard limit for the number of concurrent requests processed by each replica. A value of 0 means unlimited. |
+| knative.timeoutSeconds | int | `nil` | Maximum duration in seconds that an in-flight request is allowed to run. |
+| knative.responseStartTimeoutSeconds | int | `nil` | Maximum duration in seconds the Knative queue proxy waits for a response to start. |
+| knative.idleTimeoutSeconds | int | `nil` | Maximum duration in seconds an idle connection is kept open. |
+| knative.autoscaling.minScale | int | `nil` | Minimum number of replicas for each Knative revision. |
+| knative.autoscaling.maxScale | int | `nil` | Maximum number of replicas for each Knative revision. |
 | configSecret.create | bool | `true` | Enable creating a secret from the values passed to `config`. If set to false, name must point to an existing secret. |
 | configSecret.name | string | `""` | The name of the secret to mount as configuration in the pod. If not set and create is true, a name is generated using the fullname template. Must point to secret that contains at least a `config.yaml` key. |
 | config | object | `{}` | Application configuration. See the [official documentation](https://dexidp.io/docs/). |

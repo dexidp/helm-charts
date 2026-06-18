@@ -93,6 +93,26 @@ ingress:
       secretName: dex-cert
 ```
 
+### Knative configuration
+
+This chart can render a Knative `Service` instead of the default Kubernetes `Deployment` and `Service`:
+
+```yaml
+knative:
+  enabled: true
+
+config:
+  issuer: https://dex.example.com
+
+  storage:
+    type: memory
+
+  enablePasswordDB: true
+```
+
+In Knative mode, Dex serves on its HTTP endpoint (`5556`) and exposes telemetry on `5558` for health probes.
+Knative manages routing and autoscaling for the workload, so Kubernetes-level features such as `ingress`, `httpRoute`, `autoscaling`, and `podDisruptionBudget` are not used and should be left disabled.
+
 {{ template "chart.valuesSection" . }}
 
 ## Migrating from stable/dex (or banzaicloud-stable/dex) chart

@@ -47,6 +47,34 @@ grpc:
   # Read more in the [documentation](https://dexidp.io/docs/api/).
   enabled: false
 
+knative:
+  # -- Enable rendering a Knative Service instead of a Kubernetes Deployment and Service.
+  enabled: false
+
+  # -- Additional annotations to add to the Knative revision template,
+  # for example autoscaling options not covered by `knative.autoscaling`.
+  annotations: {}
+
+  # -- Hard limit for the number of concurrent requests processed by each replica.
+  # A value of 0 means unlimited.
+  containerConcurrency: 0
+
+  # -- (int) Maximum duration in seconds that an in-flight request is allowed to run.
+  timeoutSeconds:
+
+  # -- (int) Maximum duration in seconds the Knative queue proxy waits for a response to start.
+  responseStartTimeoutSeconds:
+
+  # -- (int) Maximum duration in seconds an idle connection is kept open.
+  idleTimeoutSeconds:
+
+  autoscaling:
+    # -- (int) Minimum number of replicas for each Knative revision.
+    minScale:
+
+    # -- (int) Maximum number of replicas for each Knative revision.
+    maxScale:
+
 configSecret:
   # -- Enable creating a secret from the values passed to `config`.
   # If set to false, name must point to an existing secret.

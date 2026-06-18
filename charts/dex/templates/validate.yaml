@@ -1,0 +1,15 @@
+{{- if and .Values.knative.enabled .Values.autoscaling.enabled -}}
+{{- fail "autoscaling.enabled cannot be used with knative.enabled; use knative.autoscaling instead" -}}
+{{- end -}}
+{{- if and .Values.knative.enabled .Values.ingress.enabled -}}
+{{- fail "ingress.enabled cannot be used with knative.enabled; use the Knative Service route instead" -}}
+{{- end -}}
+{{- if and .Values.knative.enabled .Values.httpRoute.enabled -}}
+{{- fail "httpRoute.enabled cannot be used with knative.enabled; use the Knative Service route instead" -}}
+{{- end -}}
+{{- if and .Values.knative.enabled .Values.serviceMonitor.enabled -}}
+{{- fail "serviceMonitor.enabled cannot be used with knative.enabled because Knative does not expose dex's telemetry port through a Kubernetes Service" -}}
+{{- end -}}
+{{- if and .Values.knative.enabled (or .Values.https.enabled .Values.grpc.enabled) -}}
+{{- fail "https.enabled and grpc.enabled cannot be used with knative.enabled because Knative Serving allows only one exposed container port" -}}
+{{- end -}}
