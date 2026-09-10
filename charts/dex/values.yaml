@@ -104,6 +104,9 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template.
   name: ""
 
+  # -- Automount the service account token into the pod.
+  automountServiceAccountToken: true
+
 rbac:
   # -- Specifies whether RBAC resources should be created.
   # If disabled, the operator is responsible for creating the necessary resources based on the templates.
