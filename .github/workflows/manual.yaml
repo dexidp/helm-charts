@@ -64,4 +64,4 @@ jobs:
           node_image: ${{ steps.node_image.outputs.image }}
 
       - name: Test
-        run: ct lint-and-install ${{ steps.charts.outputs.selector }}
+        run: ct lint-and-install --config ct.yaml ${{ steps.charts.outputs.selector }}

@@ -24,7 +24,7 @@ jobs:
         uses: helm/chart-testing-action@v2.8.0
 
       - name: Lint
-        run: ct lint
+        run: ct lint --config ct.yaml
 
       - name: Check generated docs
         run: |
@@ -35,7 +35,7 @@ jobs:
       - name: Detect changes
         id: changes
         run: |
-          changed=$(ct list-changed)
+          changed=$(ct list-changed --config ct.yaml)
           if [[ -n "$changed" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
@@ -88,4 +88,4 @@ jobs:
           node_image: ${{ steps.node_image.outputs.image }}
 
       - name: Test
-        run: ct install
+        run: ct install --config ct.yaml
