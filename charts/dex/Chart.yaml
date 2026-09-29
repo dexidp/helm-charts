@@ -1,9 +1,9 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.25.0
+version: 0.25.1
 appVersion: "2.45.1"
-kubeVersion: ">=1.14.0-0"
+kubeVersion: ">=1.20.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 icon: https://dexidp.io/favicons/favicon.png
 keywords:
@@ -22,7 +22,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: "Update Dex to 2.45.1"
+      description: "Increase kubeVersion"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.45.1
