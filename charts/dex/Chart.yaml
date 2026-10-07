@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: dex
-version: 0.26.0
+version: 0.27.0
 appVersion: "2.46.0"
 kubeVersion: ">=1.20.0-0"
 description: OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
@@ -21,8 +21,8 @@ maintainers:
     url: https://sagikazarmark.com
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: "Updated Dex to v2.46.0"
+    - kind: added
+      description: "Added ClusterRoles (read and write) aggregated into edit and admin for the dex.coreos.com storage resources (rbac.createAggregation)"
   artifacthub.io/images: |
     - name: dex
       image: ghcr.io/dexidp/dex:v2.46.0

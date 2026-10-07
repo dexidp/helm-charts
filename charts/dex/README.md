@@ -1,6 +1,6 @@
 # dex
 
-![version: 0.26.0](https://img.shields.io/badge/version-0.26.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.46.0](https://img.shields.io/badge/app%20version-2.46.0-informational?style=flat-square) ![kube version: >=1.20.0-0](https://img.shields.io/badge/kube%20version->=1.20.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
+![version: 0.27.0](https://img.shields.io/badge/version-0.27.0-informational?style=flat-square) ![type: application](https://img.shields.io/badge/type-application-informational?style=flat-square) ![app version: 2.46.0](https://img.shields.io/badge/app%20version-2.46.0-informational?style=flat-square) ![kube version: >=1.20.0-0](https://img.shields.io/badge/kube%20version->=1.20.0--0-informational?style=flat-square) [![artifact hub](https://img.shields.io/badge/artifact%20hub-dex-informational?style=flat-square)](https://artifacthub.io/packages/helm/dex/dex)
 
 OpenID Connect (OIDC) identity and OAuth 2.0 provider with pluggable connectors.
 
@@ -136,6 +136,7 @@ ingress:
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | rbac.create | bool | `true` | Specifies whether RBAC resources should be created. If disabled, the operator is responsible for creating the necessary resources based on the templates. |
 | rbac.createClusterScoped | bool | `true` | Specifies which RBAC resources should be created. If disabled, the operator is responsible for creating the necessary resources (ClusterRole and RoleBinding or CRD's) |
+| rbac.createAggregation | bool | `true` | Specifies whether ClusterRoles (read and write) aggregated into the builtin `edit` and `admin` roles should be created for the Dex storage resources (`dex.coreos.com`). They hold credentials, tokens and keys, so they are deliberately not aggregated into `view`. Only created if the Kubernetes CRD storage backend is used (or the storage type is not known to the chart). |
 | deploymentAnnotations | object | `{}` | Annotations to be added to deployment. |
 | deploymentLabels | object | `{}` | Labels to be added to deployment. |
 | podAnnotations | object | `{}` | Annotations to be added to pods. |

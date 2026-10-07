@@ -113,6 +113,11 @@ rbac:
   # If disabled, the operator is responsible for creating the necessary resources (ClusterRole and RoleBinding or CRD's)
   createClusterScoped: true
 
+  # -- Specifies whether ClusterRoles (read and write) aggregated into the builtin `edit` and `admin` roles should be created for the Dex storage resources (`dex.coreos.com`).
+  # They hold credentials, tokens and keys, so they are deliberately not aggregated into `view`.
+  # Only created if the Kubernetes CRD storage backend is used (or the storage type is not known to the chart).
+  createAggregation: true
+
 # -- Annotations to be added to deployment.
 deploymentAnnotations: {}
 
