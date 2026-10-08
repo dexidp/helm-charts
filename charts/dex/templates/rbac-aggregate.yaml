@@ -1,0 +1,70 @@
+{{- /*
+Every dex.coreos.com kind holds credentials, tokens, keys or session state,
+so none of them is aggregated into `view`.
+The read role is deliberately NOT labelled aggregate-to-view: it only exists to keep
+read and write semantics apart, edit and admin get both roles.
+Only rendered for the Kubernetes CRD storage backend (or if the storage type is unknown, e.g. config from an external secret).
+*/}}
+{{- if and .Values.rbac.create .Values.rbac.createAggregation (eq (dig "type" "kubernetes" (default dict (default dict .Values.config).storage)) "kubernetes") }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "dex.fullname" . }}-aggregate-view-sensitive
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+  annotations:
+    description: Read access to sensitive Dex resources, deliberately not aggregated into view
+rules:
+  - apiGroups:
+      - dex.coreos.com
+    resources:
+      - authcodes
+      - authrequests
+      - authsessions
+      - connectors
+      - devicerequests
+      - devicetokens
+      - oauth2clients
+      - offlinesessionses
+      - passwords
+      - refreshtokens
+      - signingkeies
+      - useridentities
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "dex.fullname" . }}-aggregate-edit
+  labels:
+    {{- include "dex.labels" . | nindent 4 }}
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+rules:
+  - apiGroups:
+      - dex.coreos.com
+    resources:
+      - authcodes
+      - authrequests
+      - authsessions
+      - connectors
+      - devicerequests
+      - devicetokens
+      - oauth2clients
+      - offlinesessionses
+      - passwords
+      - refreshtokens
+      - signingkeies
+      - useridentities
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - patch
+      - update
+{{- end }}
