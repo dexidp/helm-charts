@@ -151,6 +151,7 @@ ingress:
 | service.type | string | `"ClusterIP"` | Kubernetes [service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types). |
 | service.clusterIP | string | `""` | Internal cluster service IP (when applicable) |
 | service.loadBalancerIP | string | `""` | Load balancer service IP (when applicable) |
+| service.loadBalancerSourceRanges | list | `[]` | Load Balancer service source ranger (when applicable) |
 | service.ports.http.port | int | `5556` | HTTP service port |
 | service.ports.http.nodePort | int | `nil` | HTTP node port (when applicable) |
 | service.ports.https.port | int | `5554` | HTTPS service port |
