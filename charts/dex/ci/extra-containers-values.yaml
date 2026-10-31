@@ -1,0 +1,24 @@
+config:
+  issuer: https://my-issuer.com
+  storage:
+    type: memory
+  enablePasswordDB: true
+
+volumes:
+  - name: sidecar-data
+    emptyDir: {}
+
+extraContainers:
+  - name: sidecar
+    image: busybox:1.37.0
+    command: ["/bin/sh", "-c", "test -d /shared && exec sleep 3600"]
+    volumeMounts:
+      - name: sidecar-data
+        mountPath: /shared
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1001
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop: [ALL]
